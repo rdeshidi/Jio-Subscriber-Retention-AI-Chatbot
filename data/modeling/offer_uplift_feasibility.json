@@ -1,0 +1,34 @@
+{
+    "response_model_feasible": true,
+    "causal_uplift_ready": false,
+    "exposed_customers": 13991,
+    "redeemed_customers": 5194,
+    "non_redeemed_customers": 8797,
+    "redemption_rate": 0.37123865342005574,
+    "randomization_fields": [],
+    "treatment_timing_fields": [],
+    "subscriber_offer_link_fields": [],
+    "offer_catalogue_found": true,
+    "offer_catalogue_columns": [
+        "offer_code",
+        "offer_name",
+        "target_segment",
+        "arpu_band_inr",
+        "discount_pct",
+        "bonus_data_gb",
+        "validity_days",
+        "cost_per_sub_inr",
+        "approval_status",
+        "approved_circles",
+        "valid_from",
+        "valid_to",
+        "owner",
+        "expected_uplift_pct"
+    ],
+    "important_limitations": [
+        "Exposure is observational unless random assignment is documented.",
+        "Predictor timestamps relative to offer exposure are not established.",
+        "Exposure/churn differences are associations, not causal effects.",
+        "Offer-level uplift cannot be estimated without a subscriber-to-offer treatment link."
+    ]
+}

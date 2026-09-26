@@ -1,0 +1,12 @@
+chart_number,file_name,relative_path
+1,01_top10_problematic_circles.png,outputs\charts\01_top10_problematic_circles.png
+2,02_monthly_churn_trend.png,outputs\charts\02_monthly_churn_trend.png
+3,03_tenure_vs_churn.png,outputs\charts\03_tenure_vs_churn.png
+4,04_complaints_vs_churn.png,outputs\charts\04_complaints_vs_churn.png
+5,05_unresolved_complaints_vs_churn.png,outputs\charts\05_unresolved_complaints_vs_churn.png
+6,06_sinr_vs_churn.png,outputs\charts\06_sinr_vs_churn.png
+7,07_congestion_vs_churn.png,outputs\charts\07_congestion_vs_churn.png
+8,08_drop_call_rate_vs_churn.png,outputs\charts\08_drop_call_rate_vs_churn.png
+9,09_arpu_vs_churn.png,outputs\charts\09_arpu_vs_churn.png
+10,10_days_since_recharge_vs_churn.png,outputs\charts\10_days_since_recharge_vs_churn.png
+11,11_top_churn_correlations.png,outputs\charts\11_top_churn_correlations.png

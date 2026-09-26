@@ -1,0 +1,23 @@
+circle,circle_code,zone,base_aug_2026,churn_actual_pct,arpu_actual_inr,churn_ceiling_fy27_pct,arpu_target_fy27_inr,retention_budget_lakh,budget_utilised_lakh,circle_owner,review_status
+Uttar Pradesh East,UPE,North,47515114,2.5,227.36,2.34,242.61,877.41,565.49,N. Bose,Watch
+Maharashtra & Goa,MH,West,44544028,1.57,223.07,1.38,246.4,1379.17,807.67,R. Iyer,On track
+Bihar & Jharkhand,BH,East,39137428,2.35,232.27,2.17,259.01,1003.39,503.64,R. Iyer,On track
+Madhya Pradesh & Chhattisgarh,MP,North,35883980,2.24,226.5,1.95,253.12,1060.55,513.63,T. Nair,Watch
+Tamil Nadu,TN,South,36349174,1.64,227.83,1.41,256.62,1154.21,543.85,R. Iyer,On track
+Andhra Pradesh & Telangana,AP,South,36217384,1.9,226.44,1.66,245.06,739.89,556.27,P. Menon,Watch
+Karnataka,KA,South,33713181,1.61,229.12,1.45,245.01,907.51,425.07,T. Nair,Watch
+Uttar Pradesh West,UPW,North,30133296,2.43,229.76,2.27,249.88,1018.6,522.04,R. Iyer,Watch
+Rajasthan,RJ,North,30425426,2.06,229.39,1.78,253.7,1027.78,442.5,S. Kulkarni,Escalated
+Gujarat,GJ,West,30227037,1.76,230.04,1.62,258.68,872.28,767.47,V. Rathore,Watch
+West Bengal,WB,East,27696413,1.99,229.82,1.83,247.95,789.03,547.24,N. Bose,On track
+Kerala,KL,South,22268910,1.52,235.51,1.39,251.59,596.17,292.24,R. Iyer,On track
+Delhi NCR,DL,North,17936185,1.39,226.51,1.22,254.97,541.88,450.35,S. Kulkarni,On track
+Punjab,PB,North,16688609,2.33,230.41,2.14,253.6,368.11,222.86,N. Bose,On track
+Mumbai,MU,West,16587844,1.32,233.93,1.19,262.27,475.03,365.69,T. Nair,Escalated
+Odisha,OR,East,16766603,1.84,226.01,1.59,242.78,452.61,340.99,P. Menon,On track
+Haryana,HR,North,15628546,1.82,227.65,1.65,248.42,349.61,156.62,V. Rathore,Escalated
+Kolkata,KO,East,11158890,1.63,226.37,1.42,243.9,297.74,254.68,V. Rathore,On track
+Assam,AS,East,9888558,1.88,222.7,1.69,239.24,310.65,234.2,S. Kulkarni,Watch
+North East,NE,East,5623326,2.13,227.85,1.84,256.46,162.25,106.56,V. Rathore,Escalated
+Himachal Pradesh,HP,North,5076118,1.7,225.17,1.59,250.98,132.27,46.74,V. Rathore,On track
+Jammu & Kashmir,JK,North,4463723,2.0,227.31,1.75,241.02,111.09,76.17,S. Kulkarni,On track

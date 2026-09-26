@@ -1,0 +1,24 @@
+{
+    "true_clv_target_found": false,
+    "possible_true_target_columns": [],
+    "proxy_name": "revenue_proxy_12m_inr",
+    "proxy_formula": "monthly_value_basis_inr * 12",
+    "monthly_value_preference": [
+        "arpu_6m_avg_inr",
+        "arpu_3m_avg_inr",
+        "arpu_last_month_inr"
+    ],
+    "proxy_limitations": [
+        "Not observed future revenue",
+        "Does not include contribution margin",
+        "Does not include acquisition cost",
+        "Does not include retention offer cost",
+        "Does not explicitly model future churn",
+        "Does not discount future cash flows"
+    ],
+    "value_band_quartiles": {
+        "q25": 1619.7599999999998,
+        "q50": 2242.2,
+        "q75": 3140.25
+    }
+}

@@ -1,0 +1,9 @@
+sheet_name,rows,columns,duplicate_rows,missing_cells,missing_pct
+README,16,2,0,0,0.0
+subscribers,64738,43,0,180932,6.5
+service_requests,14206,16,0,3381,1.49
+network_sites,3847,13,0,0,0.0
+circle_monthly_kpi,396,14,0,0,0.0
+circle_targets,22,12,0,0,0.0
+offer_catalogue,20,14,0,0,0.0
+data_dictionary,112,6,0,100,14.88

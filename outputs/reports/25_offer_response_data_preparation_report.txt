@@ -1,0 +1,48 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 25 - OFFER RESPONSE MODEL DATA PREPARATION
+====================================================================================================
+
+MODELLING OBJECTIVE
+----------------------------------------------------------------------------------------------------
+Predict whether an offer-exposed customer will redeem the offer.
+
+This is a response-propensity model.
+It is NOT a causal uplift model.
+
+TARGET DISTRIBUTION
+----------------------------------------------------------------------------------------------------
+Responders: 5,194
+Non-responders: 8,797
+Response rate: 37.12%
+
+SPLIT SUMMARY
+----------------------------------------------------------------------------------------------------
+   dataset  rows  responders  nonresponders  response_rate
+     Train  8394        3116           5278         0.3712
+Validation  2798        1039           1759         0.3713
+      Test  2799        1039           1760         0.3712
+
+FEATURES
+----------------------------------------------------------------------------------------------------
+Features retained: 34
+Numeric features: 23
+Categorical features: 11
+
+EXCLUSIONS
+----------------------------------------------------------------------------------------------------
+subscriber_id: Unique identifier
+offer_response_target: Prediction target
+offer_redeemed_90d: Direct target leakage
+offer_exposed_90d: Constant in exposed-only population
+churn_flag_30d: Outcome / future churn field
+churn_flag_90d: Outcome / future churn field
+churn_reason: Post-outcome field
+churn_date: Post-outcome field
+mnp_enquiry_flag: Late-stage behaviour with uncertain timing relative to offer exposure
+join_date: Raw date excluded; tenure_months already captures tenure
+
+IMPORTANT LIMITATION
+----------------------------------------------------------------------------------------------------
+The dataset does not provide timestamps showing whether every predictor was measured before the historical offer exposure.
+Therefore the response model is suitable for sandbox analysis and propensity demonstration, but not yet a production causal targeting model.

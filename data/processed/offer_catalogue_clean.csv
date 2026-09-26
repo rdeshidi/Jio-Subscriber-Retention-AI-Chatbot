@@ -1,0 +1,21 @@
+﻿offer_code,offer_name,target_segment,arpu_band_inr,discount_pct,bonus_data_gb,validity_days,cost_per_sub_inr,approval_status,approved_circles,valid_from,valid_to,owner,expected_uplift_pct
+RET-0114,Data Boost 10GB,Low ARPU,<150,0,10,28,18.4,Active,"UPE, UPW, MP, BH",2026-07-01,2026-12-31,P. Menon,6.2
+RET-0119,Flat 12% Renewal Discount,Low ARPU,<150,12,0,28,23.75,Active,"UPE, UPW, MP, BH",2026-07-01,2026-12-31,A. Ranjan,7.8
+RET-0127,Double Data 84D,Mid ARPU,150-250,0,42,84,71.2,Active,All circles,2026-07-01,2026-12-31,A. Ranjan,7.9
+RET-0131,Rs 40 Cashback on Autopay,Mid ARPU,150-250,0,0,28,39.6,Active,All circles,2026-07-01,2026-12-31,A. Ranjan,5.8
+RET-0136,5G Unlimited Trial,Mid ARPU,150-250,0,0,30,46.15,Active,All circles,2026-07-01,2026-12-31,P. Menon,5.9
+RET-0142,Annual Plan Rs 300 Off,High ARPU,250-450,0,0,365,298.0,Active,All circles,2026-07-01,2026-12-31,A. Ranjan,0.7
+RET-0148,JioFiber Bundle Waiver,High ARPU,250-450,0,0,90,412.3,Pilot,All circles,2026-07-01,2026-12-31,A. Ranjan,12.2
+RET-0153,OTT Pack 3 Months Free,High ARPU,>450,0,0,90,187.65,Active,All circles,2026-07-01,2026-12-31,R. Iyer,12.2
+RET-0157,Family Add-on Free SIM,High ARPU,>450,0,0,180,264.9,Active,All circles,2026-07-01,2026-12-31,N. Bose,5.2
+RET-0161,Winback Rs 199 for 56D,Churned,Any,28,15,56,84.25,Active,All circles,2026-07-01,2026-12-31,N. Bose,9.4
+RET-0166,Port-in Retention Voucher,MNP Risk,Any,15,20,84,129.4,Active,"UPE, UPW, MP, BH",2026-07-01,2026-12-31,R. Iyer,8.3
+RET-0170,Device EMI Subsidy,High ARPU,>450,0,0,365,1842.0,Approval pending,All circles,2026-07-01,2026-12-31,P. Menon,4.1
+RET-0174,AirFiber Install Fee Waiver,Home,Any,0,0,1,1000.0,Active,All circles,2026-07-01,2026-12-31,P. Menon,10.9
+RET-0179,Silent User Reactivation,Dormant,<150,35,8,28,31.8,Pilot,"UPE, UPW, MP, BH",2026-07-01,2026-12-31,S. Kulkarni,5.2
+RET-0183,Network Goodwill Credit,Complaint,Any,0,5,14,27.55,Active,All circles,2026-07-01,2026-12-31,S. Kulkarni,8.0
+RET-0188,Loyalty 24M Tenure Bonus,Tenured,Any,8,25,84,96.7,Active,All circles,2026-07-01,2026-12-31,N. Bose,12.2
+RET-0192,Student Data Pack,Low ARPU,<150,20,30,56,54.1,Pilot,"UPE, UPW, MP, BH",2026-07-01,2026-12-31,A. Ranjan,11.6
+RET-0197,Rural Voice Saver,Low ARPU,<150,18,0,84,41.35,Active,"UPE, UPW, MP, BH",2026-07-01,2026-12-31,R. Iyer,3.8
+RET-0203,Enterprise SME Bundle,Postpaid,>450,10,50,30,388.2,Active,All circles,2026-07-01,2026-12-31,A. Ranjan,10.1
+RET-0209,Festive Double Validity,Mid ARPU,150-250,0,0,56,62.9,Expired,All circles,2026-07-01,2026-12-31,R. Iyer,3.9

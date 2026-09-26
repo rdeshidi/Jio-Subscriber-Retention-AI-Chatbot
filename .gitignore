@@ -1,0 +1,40 @@
+# Secrets / environment
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+jio_env/
+venv/
+.venv/
+env/
+
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit local configuration
+.streamlit/secrets.toml
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs / temporary files
+*.log
+*.tmp
+*.temp
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3

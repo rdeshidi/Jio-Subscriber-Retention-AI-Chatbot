@@ -1,0 +1,33 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 23 - OUT-OF-SAMPLE RISK-VALUE VALIDATION
+====================================================================================================
+
+This analysis uses only the previously untouched 20% test population.
+
+SEGMENT RESULTS
+----------------------------------------------------------------------------------------------------
+              retention_priority_segment  customers  actual_churners  avg_risk_score  avg_monthly_value_inr  avg_12m_revenue_proxy_inr  actual_churn_pct
+     Priority 1 - High Risk / High Value        101               13          0.7329               337.7525                  4053.0297           12.8713
+Priority 2 - High Risk / Upper-Mid Value        250               28          0.7530               217.1905                  2606.2858           11.2000
+    Priority 3 - High Risk / Lower Value        943              111          0.7593               122.3846                  1468.6152           11.7709
+       Priority 4 - High Value Watchlist        223                3          0.3331               330.8420                  3970.1037            1.3453
+                     Standard Monitoring      11431               69          0.1128               217.6739                  2612.0864            0.6036
+
+TOP RISK DECILE
+----------------------------------------------------------------------------------------------------
+Customers: 1,294
+Actual churners captured: 152 of 224
+Recall@Top10%: 0.6786
+Lift@Top10%: 6.79x
+
+PRIORITY 1 - HIGH RISK / HIGH VALUE
+----------------------------------------------------------------------------------------------------
+Customers: 101
+Actual churners: 13
+Actual churn rate: 12.87%
+
+INTERPRETATION
+----------------------------------------------------------------------------------------------------
+This test-only analysis provides the cleanest estimate of how the risk-value segmentation could generalize to unseen subscribers.
+The value measure remains an annualized ARPU proxy rather than observed CLV.

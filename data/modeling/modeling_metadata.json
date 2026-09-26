@@ -1,0 +1,58 @@
+{
+    "target": "churn_flag_30d",
+    "random_state": 42,
+    "split": {
+        "train": 0.6,
+        "validation": 0.2,
+        "test": 0.2
+    },
+    "excluded_columns": {
+        "subscriber_id": "Unique customer identifier; no predictive meaning.",
+        "mnp_enquiry_flag": "Strong target-leakage risk and occurs too late for the intended early-retention use case.",
+        "churn_reason": "Only known after churn / outcome.",
+        "churn_date": "Direct future outcome information.",
+        "churn_flag_90d": "Future churn outcome and therefore leakage for a 30-day churn prediction model.",
+        "join_date": "Tenure_months already represents customer age at snapshot and is safer for the baseline model."
+    },
+    "numeric_features": [
+        "tenure_months",
+        "plan_price_inr",
+        "plan_validity_days",
+        "arpu_last_month_inr",
+        "arpu_3m_avg_inr",
+        "arpu_6m_avg_inr",
+        "recharge_count_6m",
+        "avg_recharge_gap_days",
+        "days_since_last_recharge",
+        "payment_failures_6m",
+        "data_gb_last_month",
+        "data_gb_3m_avg",
+        "voice_minutes_last_month",
+        "sms_count_last_month",
+        "avg_sinr_db",
+        "drop_call_rate_pct",
+        "site_congestion_score",
+        "complaints_6m",
+        "unresolved_complaints",
+        "avg_resolution_days",
+        "num_services",
+        "app_logins_30d",
+        "outgoing_to_competitor_pct"
+    ],
+    "categorical_features": [
+        "circle",
+        "circle_code",
+        "zone",
+        "plan_type",
+        "autopay_enabled",
+        "device_brand",
+        "is_5g_device",
+        "is_5g_active",
+        "home_product",
+        "family_plan_flag",
+        "roaming_user_flag",
+        "offer_exposed_90d",
+        "offer_redeemed_90d"
+    ],
+    "feature_count": 36
+}

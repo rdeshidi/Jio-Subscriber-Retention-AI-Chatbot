@@ -1,0 +1,53 @@
+timestamp_utc,question_hash,question,privacy_status,sql_generated,validation_status,execution_status,runtime_seconds,row_count,result_status,error,model,ollama_version
+2026-09-24T19:08:44.878295+00:00,6afe16751c2f9996,AUDIT TEST,TEST,"SELECT circle, COUNT(*) FROM subscribers GROUP BY circle LIMIT 5",PASSED,PASSED,0.1234,5,SUCCESS,,qwen2.5:3b,test
+2026-09-24T19:08:44.889648+00:00,bb3c60297ca6c0a5,Which 5 circles have the highest 30-day churn rate?,PASSED,"SELECT
+    circle,
+    COUNT(*) AS total_subscribers,
+    SUM(churn_flag_30d) AS churned_subscribers,
+    ROUND(AVG(churn_flag_30d) * 100, 2) AS churn_rate_percentage
+FROM subscribers
+GROUP BY circle
+ORDER BY churn_rate_percentage DESC
+LIMIT 5;",PASSED,PASSED,89.3689,5,SUCCESS,,qwen2.5:3b,ollama version is 0.34.4
+2026-09-24T19:10:14.435405+00:00,a21007210891d346,What is the average ARPU by circle?,PASSED,"SELECT
+    circle,
+    ROUND(AVG(arpu_last_month_inr), 2) AS average_arpu_inr
+FROM subscribers
+GROUP BY circle
+ORDER BY average_arpu_inr DESC
+LIMIT 200;",PASSED,PASSED,10.0066,22,SUCCESS,,qwen2.5:3b,ollama version is 0.34.4
+2026-09-24T19:10:24.444680+00:00,14ee3e02831831ef,[REDACTED: privacy blocked],BLOCKED,,NOT_RUN,NOT_RUN,0,0,BLOCKED,"I can't provide personal, identifying, confidential, or sensitive information about employees, customers, or other individuals. I can help with aggregated and privacy-safe business analysis instead.",qwen2.5:3b,ollama version is 0.34.4
+2026-09-25T15:51:49.168747+00:00,bb3c60297ca6c0a5,Which 5 circles have the highest 30-day churn rate?,PASSED,"SELECT
+    circle,
+    COUNT(*) AS total_subscribers,
+    SUM(churn_flag_30d) AS churned_subscribers,
+    ROUND(AVG(churn_flag_30d) * 100, 2) AS churn_rate_percentage
+FROM subscribers
+GROUP BY circle
+ORDER BY churn_rate_percentage DESC
+LIMIT 5;",PASSED,PASSED,172.68,5,SUCCESS,,qwen2.5:3b,local Ollama
+2026-09-25T15:56:57.577199+00:00,a21007210891d346,What is the average ARPU by circle?,PASSED,"SELECT
+    circle,
+    ROUND(AVG(arpu_last_month_inr), 2) AS average_arpu_inr
+FROM subscribers
+GROUP BY circle
+ORDER BY average_arpu_inr DESC
+LIMIT 200;",PASSED,PASSED,30.9386,22,SUCCESS,,qwen2.5:3b,local Ollama
+2026-09-26T03:59:22.555470+00:00,a21007210891d346,What is the average ARPU by circle?,PASSED,"SELECT
+    circle,
+    ROUND(AVG(arpu_last_month_inr), 2) AS average_arpu_inr
+FROM subscribers
+GROUP BY circle
+ORDER BY average_arpu_inr DESC
+LIMIT 200;",PASSED,PASSED,172.216,22,SUCCESS,,qwen2.5:3b,local Ollama
+2026-09-26T04:03:32.126205+00:00,14ee3e02831831ef,[REDACTED: privacy blocked],BLOCKED,,NOT_RUN,NOT_RUN,0.0004,0,BLOCKED,"I can't provide personal, identifying, confidential, or sensitive information about employees, customers, or other individuals. I can help with aggregated and privacy-safe business analysis instead.",qwen2.5:3b,local Ollama
+2026-09-26T04:06:56.457316+00:00,748609638cea8811,Delete all subscribers with zero complaints.,PASSED,,BLOCKED,NOT_RUN,113.8806,0,BLOCKED,Only read-only SELECT queries are allowed.,qwen2.5:3b,local Ollama
+2026-09-26T04:26:07.987906+00:00,bb3c60297ca6c0a5,Which 5 circles have the highest 30-day churn rate?,PASSED,"SELECT
+    circle,
+    COUNT(*) AS total_subscribers,
+    SUM(churn_flag_30d) AS churned_subscribers,
+    ROUND(AVG(churn_flag_30d) * 100, 2) AS churn_rate_percentage
+FROM subscribers
+GROUP BY circle
+ORDER BY churn_rate_percentage DESC
+LIMIT 5;",PASSED,PASSED,136.5352,5,SUCCESS,,qwen2.5:3b,local Ollama

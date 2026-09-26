@@ -1,0 +1,50 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 21 CLV TARGET ASSESSMENT
+====================================================================================================
+
+CLV TARGET ASSESSMENT
+----------------------------------------------------------------------------------------------------
+No genuine observed future CLV, future contribution, future margin, or next-12-month revenue target was found in the subscriber dataset.
+
+DECISION
+----------------------------------------------------------------------------------------------------
+A supervised CLV regression target will NOT be invented.
+Instead, this sandbox stage creates a transparent 12-month revenue proxy for customer-value prioritisation.
+
+PROXY DEFINITION
+----------------------------------------------------------------------------------------------------
+Preferred monthly value basis:
+1. 6-month average ARPU
+2. 3-month average ARPU when 6-month ARPU is unavailable
+3. Last-month ARPU when both averages are unavailable
+
+12-month revenue proxy = monthly value basis x 12
+
+This is an annualized revenue proxy, not realized customer lifetime value.
+
+VALUE-BAND SUMMARY
+----------------------------------------------------------------------------------------------------
+customer_value_band  customers  avg_monthly_value_inr  avg_revenue_proxy_12m_inr  median_revenue_proxy_12m_inr  churn_30d_pct
+         High Value      16185                 368.40                    4420.78                       3984.96           0.52
+          Low Value      16188                 105.66                    1267.96                       1288.80           3.32
+    Lower-Mid Value      16182                 160.49                    1925.88                       1923.12           1.84
+    Upper-Mid Value      16183                 220.61                    2647.38                       2627.40           1.25
+
+PROXY STATISTICS
+----------------------------------------------------------------------------------------------------
+       monthly_value_basis_inr  revenue_proxy_12m_inr
+count                 64738.00               64738.00
+mean                    213.79                2565.47
+std                     114.78                1377.34
+min                      75.00                 900.00
+25%                     134.98                1619.76
+50%                     186.85                2242.20
+75%                     261.69                3140.25
+max                    1475.14               17701.68
+
+LIMITATIONS
+----------------------------------------------------------------------------------------------------
+The supplied dataset does not contain observed future 12-month revenue or contribution margin.
+Therefore the current proxy should be used for value segmentation and prioritisation, not presented as an observed financial CLV outcome.
+Future churn risk and retention economics can be combined with this value proxy in a later risk-value prioritisation stage.

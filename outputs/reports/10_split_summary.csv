@@ -1,0 +1,4 @@
+split,rows,churners_30d,churn_rate_pct
+Train,38842,673,1.73
+Validation,12948,225,1.74
+Test,12948,224,1.73

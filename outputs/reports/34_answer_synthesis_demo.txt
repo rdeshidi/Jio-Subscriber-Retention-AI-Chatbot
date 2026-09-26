@@ -1,0 +1,42 @@
+JIO CHATBOT - STEP 34 VERIFIED ANSWER SYNTHESIS
+
+==============================================================================
+QUESTION
+Which 5 circles have the highest 30-day churn rate?
+
+VERIFIED ANSWER
+Top 5 circles by 30-day churn rate:
+- Uttar Pradesh East: 2.77%
+- Madhya Pradesh & Chhattisgarh: 2.49%
+- Bihar & Jharkhand: 2.44%
+- Uttar Pradesh West: 2.40%
+- Assam: 2.37%
+
+SQL used:
+SELECT
+    circle,
+    COUNT(*) AS total_subscribers,
+    SUM(churn_flag_30d) AS churned_subscribers,
+    ROUND(AVG(churn_flag_30d) * 100, 2) AS churn_rate_percentage
+FROM subscribers
+GROUP BY circle
+ORDER BY churn_rate_percentage DESC
+LIMIT 5;
+
+==============================================================================
+QUESTION
+What is the average ARPU by circle?
+
+VERIFIED ANSWER
+Average ARPU by circle ranges from ₹209.68 in North East to ₹219.46 in Himachal Pradesh.
+- Highest average ARPU: Himachal Pradesh — ₹219.46
+- Lowest average ARPU: North East — ₹209.68
+
+SQL used:
+SELECT
+    circle,
+    ROUND(AVG(arpu_last_month_inr), 2) AS average_arpu_inr
+FROM subscribers
+GROUP BY circle
+ORDER BY average_arpu_inr DESC
+LIMIT 200;

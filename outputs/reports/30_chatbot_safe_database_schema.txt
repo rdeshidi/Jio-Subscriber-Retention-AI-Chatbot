@@ -1,0 +1,152 @@
+====================================================================================================
+JIO CHATBOT - PRIVACY-SAFE DATABASE SCHEMA
+====================================================================================================
+
+Database: jio_retention_db
+Database user: jio_chatbot
+
+The chatbot is restricted to approved Jio analytical tables.
+Sensitive or confidential columns are excluded from the chatbot-visible schema.
+
+TABLE: circle_monthly_kpi
+----------------------------------------------------------------------------------------------------
+month_end                           DATE
+circle                              VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+circle_code                         VARCHAR(3) COLLATE "utf8mb4_unicode_ci"
+zone                                VARCHAR(10) COLLATE "utf8mb4_unicode_ci"
+closing_base                        BIGINT
+gross_adds                          BIGINT
+churned_subscribers                 BIGINT
+net_adds                            BIGINT
+monthly_churn_pct                   DECIMAL(6, 2)
+arpu_inr                            DECIMAL(10, 2)
+data_traffic_pb                     DECIMAL(12, 2)
+port_in_requests                    BIGINT
+port_out_requests                   BIGINT
+complaints_logged                   INTEGER
+
+TABLE: circle_targets
+----------------------------------------------------------------------------------------------------
+circle                              VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+circle_code                         VARCHAR(3) COLLATE "utf8mb4_unicode_ci"
+zone                                VARCHAR(10) COLLATE "utf8mb4_unicode_ci"
+base_aug_2026                       BIGINT
+churn_actual_pct                    DECIMAL(6, 2)
+arpu_actual_inr                     DECIMAL(10, 2)
+churn_ceiling_fy27_pct              DECIMAL(6, 2)
+arpu_target_fy27_inr                DECIMAL(10, 2)
+retention_budget_lakh               DECIMAL(12, 2)
+budget_utilised_lakh                DECIMAL(12, 2)
+circle_owner                        VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+review_status                       VARCHAR(30) COLLATE "utf8mb4_unicode_ci"
+
+TABLE: network_sites
+----------------------------------------------------------------------------------------------------
+site_id                             VARCHAR(11) COLLATE "utf8mb4_unicode_ci"
+circle                              VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+circle_code                         VARCHAR(3) COLLATE "utf8mb4_unicode_ci"
+zone                                VARCHAR(10) COLLATE "utf8mb4_unicode_ci"
+pin_code                            CHAR(6) COLLATE "utf8mb4_unicode_ci"
+technology                          VARCHAR(20) COLLATE "utf8mb4_unicode_ci"
+subscribers_served                  INTEGER
+prb_utilisation_pct                 DECIMAL(6, 2)
+avg_sinr_db                         DECIMAL(6, 2)
+drop_call_rate_pct                  DECIMAL(6, 2)
+avg_throughput_mbps                 DECIMAL(8, 2)
+congestion_flag                     TINYINT
+backhaul                            VARCHAR(20) COLLATE "utf8mb4_unicode_ci"
+
+TABLE: offer_catalogue
+----------------------------------------------------------------------------------------------------
+offer_code                          VARCHAR(12) COLLATE "utf8mb4_unicode_ci"
+offer_name                          VARCHAR(100) COLLATE "utf8mb4_unicode_ci"
+target_segment                      VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+arpu_band_inr                       VARCHAR(30) COLLATE "utf8mb4_unicode_ci"
+discount_pct                        TINYINT
+bonus_data_gb                       SMALLINT
+validity_days                       SMALLINT
+cost_per_sub_inr                    DECIMAL(10, 2)
+approval_status                     VARCHAR(30) COLLATE "utf8mb4_unicode_ci"
+approved_circles                    VARCHAR(255) COLLATE "utf8mb4_unicode_ci"
+valid_from                          DATE
+valid_to                            DATE
+owner                               VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+expected_uplift_pct                 DECIMAL(6, 2)
+
+TABLE: service_requests
+----------------------------------------------------------------------------------------------------
+sr_id                               VARCHAR(11) COLLATE "utf8mb4_unicode_ci"
+circle                              VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+circle_code                         VARCHAR(3) COLLATE "utf8mb4_unicode_ci"
+product                             VARCHAR(30) COLLATE "utf8mb4_unicode_ci"
+sr_category                         VARCHAR(40) COLLATE "utf8mb4_unicode_ci"
+sr_subcategory                      VARCHAR(80) COLLATE "utf8mb4_unicode_ci"
+channel                             VARCHAR(30) COLLATE "utf8mb4_unicode_ci"
+raised_date                         DATE
+sla_days                            TINYINT
+resolution_days                     DECIMAL(8, 2)
+resolved_date                       DATETIME
+sla_breach_flag                     TINYINT
+reopened_flag                       TINYINT
+status                              VARCHAR(20) COLLATE "utf8mb4_unicode_ci"
+csat_score                          DECIMAL(3, 1)
+
+PRIVACY-BLOCKED COLUMNS:
+[BLOCKED] subscriber_id
+
+TABLE: subscribers
+----------------------------------------------------------------------------------------------------
+circle                              VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+circle_code                         VARCHAR(3) COLLATE "utf8mb4_unicode_ci"
+zone                                VARCHAR(10) COLLATE "utf8mb4_unicode_ci"
+join_date                           DATE
+tenure_months                       SMALLINT
+plan_type                           VARCHAR(20) COLLATE "utf8mb4_unicode_ci"
+plan_price_inr                      DECIMAL(10, 2)
+plan_validity_days                  SMALLINT
+arpu_last_month_inr                 DECIMAL(10, 2)
+arpu_3m_avg_inr                     DECIMAL(10, 2)
+arpu_6m_avg_inr                     DECIMAL(10, 2)
+recharge_count_6m                   TINYINT
+avg_recharge_gap_days               DECIMAL(8, 2)
+days_since_last_recharge            SMALLINT
+payment_failures_6m                 TINYINT
+autopay_enabled                     TINYINT
+data_gb_last_month                  DECIMAL(10, 2)
+data_gb_3m_avg                      DECIMAL(10, 2)
+voice_minutes_last_month            INTEGER
+sms_count_last_month                SMALLINT
+device_brand                        VARCHAR(50) COLLATE "utf8mb4_unicode_ci"
+is_5g_device                        TINYINT
+is_5g_active                        TINYINT
+avg_sinr_db                         DECIMAL(6, 2)
+drop_call_rate_pct                  DECIMAL(6, 2)
+site_congestion_score               DECIMAL(6, 2)
+complaints_6m                       TINYINT
+unresolved_complaints               TINYINT
+avg_resolution_days                 DECIMAL(8, 2)
+home_product                        VARCHAR(30) COLLATE "utf8mb4_unicode_ci"
+num_services                        TINYINT
+family_plan_flag                    TINYINT
+app_logins_30d                      SMALLINT
+outgoing_to_competitor_pct          DECIMAL(6, 2)
+roaming_user_flag                   TINYINT
+offer_exposed_90d                   TINYINT
+offer_redeemed_90d                  TINYINT
+mnp_enquiry_flag                    TINYINT
+churn_flag_30d                      TINYINT
+churn_flag_90d                      TINYINT
+churn_reason                        VARCHAR(100) COLLATE "utf8mb4_unicode_ci"
+churn_date                          DATE
+
+PRIVACY-BLOCKED COLUMNS:
+[BLOCKED] subscriber_id
+
+ROW COUNTS
+----------------------------------------------------------------------------------------------------
+circle_monthly_kpi                    396
+circle_targets                         22
+network_sites                       3,847
+offer_catalogue                        20
+service_requests                   14,206
+subscribers                        64,738

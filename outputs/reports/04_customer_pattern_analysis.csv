@@ -1,0 +1,27 @@
+analysis,segment,subscribers,churners_30d,churn_rate_30d_pct
+ARPU band,<₹150,20162,649,3.22
+ARPU band,₹150-₹249.99,26656,382,1.43
+ARPU band,₹250+,17920,91,0.51
+Days since last recharge,0-7 days,9012,32,0.36
+Days since last recharge,8-30 days,28681,166,0.58
+Days since last recharge,31-60 days,14560,164,1.13
+Days since last recharge,61+ days,12485,760,6.09
+Average recharge gap,<30 days,18506,98,0.53
+Average recharge gap,30-59 days,26123,191,0.73
+Average recharge gap,60-89 days,10406,163,1.57
+Average recharge gap,90+ days,9703,670,6.91
+Payment failures,0 failures,44302,498,1.12
+Payment failures,1 failure,16156,384,2.38
+Payment failures,2+ failures,4280,240,5.61
+Plan type,Postpaid,7621,17,0.22
+Plan type,Prepaid,57117,1105,1.93
+5G active,False,38473,822,2.14
+5G active,True,26265,300,1.14
+Autopay enabled,False,49140,998,2.03
+Autopay enabled,True,15598,124,0.79
+Family plan,False,54879,987,1.8
+Family plan,True,9859,135,1.37
+Number of services,1,38116,743,1.95
+Number of services,2,22124,338,1.53
+Number of services,3,4228,40,0.95
+Number of services,4,270,1,0.37

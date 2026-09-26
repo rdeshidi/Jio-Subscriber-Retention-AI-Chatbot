@@ -1,0 +1,599 @@
+{
+    "database": "jio_retention_db",
+    "database_user": "jio_chatbot",
+    "allowed_tables": [
+        "circle_monthly_kpi",
+        "circle_targets",
+        "network_sites",
+        "offer_catalogue",
+        "service_requests",
+        "subscribers"
+    ],
+    "schema": {
+        "circle_monthly_kpi": {
+            "safe_columns": [
+                {
+                    "name": "month_end",
+                    "type": "DATE",
+                    "nullable": false
+                },
+                {
+                    "name": "circle",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle_code",
+                    "type": "VARCHAR(3) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "zone",
+                    "type": "VARCHAR(10) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "closing_base",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "gross_adds",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "churned_subscribers",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "net_adds",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "monthly_churn_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "data_traffic_pb",
+                    "type": "DECIMAL(12, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "port_in_requests",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "port_out_requests",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "complaints_logged",
+                    "type": "INTEGER",
+                    "nullable": false
+                }
+            ],
+            "blocked_columns": []
+        },
+        "circle_targets": {
+            "safe_columns": [
+                {
+                    "name": "circle",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle_code",
+                    "type": "VARCHAR(3) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "zone",
+                    "type": "VARCHAR(10) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "base_aug_2026",
+                    "type": "BIGINT",
+                    "nullable": false
+                },
+                {
+                    "name": "churn_actual_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_actual_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "churn_ceiling_fy27_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_target_fy27_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "retention_budget_lakh",
+                    "type": "DECIMAL(12, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "budget_utilised_lakh",
+                    "type": "DECIMAL(12, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "circle_owner",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "review_status",
+                    "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                }
+            ],
+            "blocked_columns": []
+        },
+        "network_sites": {
+            "safe_columns": [
+                {
+                    "name": "site_id",
+                    "type": "VARCHAR(11) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle_code",
+                    "type": "VARCHAR(3) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "zone",
+                    "type": "VARCHAR(10) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "pin_code",
+                    "type": "CHAR(6) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "technology",
+                    "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "subscribers_served",
+                    "type": "INTEGER",
+                    "nullable": false
+                },
+                {
+                    "name": "prb_utilisation_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "avg_sinr_db",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "drop_call_rate_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "avg_throughput_mbps",
+                    "type": "DECIMAL(8, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "congestion_flag",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "backhaul",
+                    "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                }
+            ],
+            "blocked_columns": []
+        },
+        "offer_catalogue": {
+            "safe_columns": [
+                {
+                    "name": "offer_code",
+                    "type": "VARCHAR(12) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "offer_name",
+                    "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "target_segment",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_band_inr",
+                    "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "discount_pct",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "bonus_data_gb",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "validity_days",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "cost_per_sub_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "approval_status",
+                    "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "approved_circles",
+                    "type": "VARCHAR(255) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "valid_from",
+                    "type": "DATE",
+                    "nullable": false
+                },
+                {
+                    "name": "valid_to",
+                    "type": "DATE",
+                    "nullable": false
+                },
+                {
+                    "name": "owner",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "expected_uplift_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                }
+            ],
+            "blocked_columns": []
+        },
+        "service_requests": {
+            "safe_columns": [
+                {
+                    "name": "sr_id",
+                    "type": "VARCHAR(11) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle_code",
+                    "type": "VARCHAR(3) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "product",
+                    "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "sr_category",
+                    "type": "VARCHAR(40) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "sr_subcategory",
+                    "type": "VARCHAR(80) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "channel",
+                    "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "raised_date",
+                    "type": "DATE",
+                    "nullable": false
+                },
+                {
+                    "name": "sla_days",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "resolution_days",
+                    "type": "DECIMAL(8, 2)",
+                    "nullable": true
+                },
+                {
+                    "name": "resolved_date",
+                    "type": "DATETIME",
+                    "nullable": true
+                },
+                {
+                    "name": "sla_breach_flag",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "reopened_flag",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "csat_score",
+                    "type": "DECIMAL(3, 1)",
+                    "nullable": true
+                }
+            ],
+            "blocked_columns": [
+                "subscriber_id"
+            ]
+        },
+        "subscribers": {
+            "safe_columns": [
+                {
+                    "name": "circle",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "circle_code",
+                    "type": "VARCHAR(3) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "zone",
+                    "type": "VARCHAR(10) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "join_date",
+                    "type": "DATE",
+                    "nullable": false
+                },
+                {
+                    "name": "tenure_months",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "plan_type",
+                    "type": "VARCHAR(20) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "plan_price_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "plan_validity_days",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_last_month_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_3m_avg_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "arpu_6m_avg_inr",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "recharge_count_6m",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "avg_recharge_gap_days",
+                    "type": "DECIMAL(8, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "days_since_last_recharge",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "payment_failures_6m",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "autopay_enabled",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "data_gb_last_month",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "data_gb_3m_avg",
+                    "type": "DECIMAL(10, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "voice_minutes_last_month",
+                    "type": "INTEGER",
+                    "nullable": false
+                },
+                {
+                    "name": "sms_count_last_month",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "device_brand",
+                    "type": "VARCHAR(50) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": false
+                },
+                {
+                    "name": "is_5g_device",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "is_5g_active",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "avg_sinr_db",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "drop_call_rate_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "site_congestion_score",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "complaints_6m",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "unresolved_complaints",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "avg_resolution_days",
+                    "type": "DECIMAL(8, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "home_product",
+                    "type": "VARCHAR(30) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": true
+                },
+                {
+                    "name": "num_services",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "family_plan_flag",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "app_logins_30d",
+                    "type": "SMALLINT",
+                    "nullable": false
+                },
+                {
+                    "name": "outgoing_to_competitor_pct",
+                    "type": "DECIMAL(6, 2)",
+                    "nullable": false
+                },
+                {
+                    "name": "roaming_user_flag",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "offer_exposed_90d",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "offer_redeemed_90d",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "mnp_enquiry_flag",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "churn_flag_30d",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "churn_flag_90d",
+                    "type": "TINYINT",
+                    "nullable": false
+                },
+                {
+                    "name": "churn_reason",
+                    "type": "VARCHAR(100) COLLATE \"utf8mb4_unicode_ci\"",
+                    "nullable": true
+                },
+                {
+                    "name": "churn_date",
+                    "type": "DATE",
+                    "nullable": true
+                }
+            ],
+            "blocked_columns": [
+                "subscriber_id"
+            ]
+        }
+    },
+    "privacy_policy": "Only privacy-safe business analysis columns are exposed to the chatbot."
+}

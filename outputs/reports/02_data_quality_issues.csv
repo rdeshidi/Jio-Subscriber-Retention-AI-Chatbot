@@ -1,0 +1,2 @@
+table,check_name,severity,affected_rows,details
+subscribers,30-day churners with churn_date after 30 days,CRITICAL,739,Some customers marked as 30-day churners have churn dates outside the 30-day horizon.

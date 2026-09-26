@@ -1,0 +1,57 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+FINAL OFFER RESPONSE / UPLIFT MODELLING SUMMARY
+====================================================================================================
+
+DATA AVAILABILITY
+----------------------------------------------------------------------------------------------------
+Offer-exposed customers: 13,991
+Offer redeemers: 5,194
+Offer non-redeemers: 8,797
+Redemption rate: 37.12%
+
+CAUSAL UPLIFT FEASIBILITY
+----------------------------------------------------------------------------------------------------
+Causal uplift ready: False
+No documented randomized/control assignment was available.
+No treatment/exposure timestamp was available.
+No subscriber-to-specific-offer linkage was available.
+Therefore causal uplift could not be estimated defensibly.
+
+OFFER RESPONSE PROPENSITY
+----------------------------------------------------------------------------------------------------
+Response-model sample-size feasibility: True
+
+              model  validation_accuracy  validation_precision  validation_recall  validation_f1  validation_roc_auc  validation_pr_auc  recall_at_top10  lift_at_top10
+Logistic Regression               0.6297                   0.8             0.0038         0.0077              0.4870             0.3725           0.1039           1.04
+           CatBoost               0.6287                   0.5             0.0029         0.0057              0.5079             0.3847           0.1107           1.11
+
+NO-SKILL REFERENCES
+----------------------------------------------------------------------------------------------------
+ROC-AUC: 0.5000
+PR-AUC prevalence baseline: 0.3712
+Recall@Top10%: approximately 0.1000
+Lift@Top10%: 1.00x
+
+CONCLUSION
+----------------------------------------------------------------------------------------------------
+Logistic Regression provided essentially no useful validation discrimination.
+CatBoost improved only marginally above the no-skill benchmark and stopped at approximately the first boosting iteration.
+The available subscriber attributes therefore do not provide sufficient out-of-sample signal for a useful offer-redemption propensity model.
+Further hyperparameter tuning was intentionally not performed because it would risk fitting noise rather than producing a defensible model.
+
+TEST SET DECISION
+----------------------------------------------------------------------------------------------------
+The dedicated offer-response test set was not opened because no validation-stage model demonstrated sufficient predictive usefulness.
+This preserves the integrity of the test set and avoids using final-test performance to search for a better model.
+
+DATA NEEDED FOR A STRONGER FUTURE SOLUTION
+----------------------------------------------------------------------------------------------------
+1. Subscriber-level offer or campaign ID.
+2. Offer type and discount amount.
+3. Offer assignment and redemption timestamps.
+4. Channel used: app, SMS, call centre, etc.
+5. Randomized control or holdout assignment.
+6. Customer eligibility rules.
+7. Historical offer-response behaviour.
+8. Predictors measured strictly before offer assignment.

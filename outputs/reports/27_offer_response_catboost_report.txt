@@ -1,0 +1,65 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 27 - OFFER RESPONSE CATBOOST MODEL
+====================================================================================================
+
+OBJECTIVE
+----------------------------------------------------------------------------------------------------
+Predict offer redemption among historically offer-exposed subscribers.
+This is a propensity model, not causal uplift.
+
+PERFORMANCE
+----------------------------------------------------------------------------------------------------
+   dataset  accuracy  precision  recall     f1  roc_auc  pr_auc
+     Train    0.6310     0.7317  0.0096 0.0190   0.5711  0.4393
+Validation    0.6287     0.5000  0.0029 0.0057   0.5079  0.3847
+
+Best iteration: 1
+Train-validation ROC-AUC gap: 0.0633
+Train-validation PR-AUC gap: 0.0546
+
+VALIDATION CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+TN: 1,756
+FP: 3
+FN: 1,036
+TP: 3
+
+TARGETING PERFORMANCE
+----------------------------------------------------------------------------------------------------
+Responders captured in top 10%: 115 / 1,039
+Recall@Top10%: 0.1107
+Lift@Top10%: 1.11x
+
+NO-SKILL REFERENCES
+----------------------------------------------------------------------------------------------------
+Random ROC-AUC reference: 0.50
+PR-AUC prevalence baseline: 0.3713
+Random Recall@Top10%: 0.10
+Random Lift@Top10%: 1.00x
+
+TOP FEATURE IMPORTANCES
+----------------------------------------------------------------------------------------------------
+                 feature  importance
+      data_gb_last_month     15.5711
+           tenure_months     15.4016
+            device_brand     14.3820
+days_since_last_recharge     14.1080
+       recharge_count_6m     12.3512
+         autopay_enabled      7.9814
+            is_5g_active      4.8099
+     avg_resolution_days      4.5295
+      plan_validity_days      4.0170
+      drop_call_rate_pct      3.8227
+   unresolved_complaints      3.0255
+                  circle      0.0000
+             circle_code      0.0000
+     arpu_last_month_inr      0.0000
+         arpu_6m_avg_inr      0.0000
+
+IMPORTANT INTERPRETATION
+----------------------------------------------------------------------------------------------------
+Feature importance should only be interpreted if the model demonstrates meaningful out-of-sample predictive discrimination.
+If validation ROC-AUC remains near 0.50, PR-AUC remains near the response prevalence, and lift remains near 1.0, the available features do not provide useful offer-response prediction signal.
+In that case, further tuning should not be used to manufacture an apparently strong model.
+The offer-response test set remains untouched.

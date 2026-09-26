@@ -1,0 +1,5 @@
+model,source,precision,recall,f1,roc_auc,pr_auc,roc_auc_gap,pr_auc_gap,recall_at_top10,lift_at_top10
+Original CatBoost,Original,0.1134,0.7911,0.1984,0.9181,0.2357,0.0527,0.1423,0.7378,7.3766
+CAT_StrongReg_HalfWeight,Tuned,0.1444,0.7244,0.2408,0.9194,0.2262,0.0327,0.0539,0.76,7.5988
+XGB_Regularized_FullWeight,Tuned,0.1021,0.8533,0.1823,0.9176,0.2259,0.0372,0.0522,0.7422,7.4211
+Logistic Regression,Original,0.093,0.84,0.1674,0.9204,0.2256,0.0082,-0.0151,0.7556,7.5544

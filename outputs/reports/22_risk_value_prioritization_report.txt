@@ -1,0 +1,38 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 22 RISK-VALUE PRIORITISATION
+====================================================================================================
+
+PURPOSE
+----------------------------------------------------------------------------------------------------
+The CLV assessment found no observed future-value target.
+Therefore the project uses a transparent 12-month ARPU-based revenue proxy together with the frozen churn model's risk ranking.
+
+RISK-VALUE PRIORITY INDEX
+----------------------------------------------------------------------------------------------------
+risk percentile x value percentile x 100
+
+The index is unitless.
+It is NOT an estimated rupee loss and should not be interpreted as a calibrated financial expectation.
+
+RETENTION PRIORITY SEGMENTS
+----------------------------------------------------------------------------------------------------
+              retention_priority_segment  customers  avg_monthly_value_inr  avg_12m_revenue_proxy_inr  avg_churn_risk_score  avg_priority_score  actual_30d_churn_pct
+     Priority 1 - High Risk / High Value        505               329.0075                  3948.0898                0.7304             79.7195               12.4752
+Priority 2 - High Risk / Upper-Mid Value       1138               217.9176                  2615.0114                0.7541             58.3241               13.8840
+    Priority 3 - High Risk / Lower Value       4830               121.9958                  1463.9497                0.7706             19.1761               14.8654
+       Priority 4 - High Value Watchlist       1164               330.5075                  3966.0901                0.3405             67.9046                1.0309
+                     Standard Monitoring      57101               218.0728                  2616.8733                0.1133             18.6961                0.2995
+
+INTERPRETATION
+----------------------------------------------------------------------------------------------------
+Priority 1 identifies subscribers who are simultaneously in the highest churn-risk decile and highest customer-value quartile.
+Priority 2 captures highest-risk subscribers with upper-mid customer value.
+Priority 3 contains other subscribers in the highest-risk decile.
+Priority 4 creates a watchlist of high-value customers within the top three risk deciles.
+All other customers remain under standard monitoring.
+
+IMPORTANT LIMITATION
+----------------------------------------------------------------------------------------------------
+The CatBoost model was trained with class weighting, so churn scores are used here primarily for ranking rather than interpreted as perfectly calibrated real-world probabilities.
+Similarly, the 12-month revenue measure is an ARPU-based proxy, not observed lifetime contribution or profit.

@@ -1,0 +1,7 @@
+table_name,rows,columns,sql_file
+subscribers,64738,43,subscribers_sql.csv
+service_requests,14206,16,service_requests_sql.csv
+network_sites,3847,13,network_sites_sql.csv
+circle_monthly_kpi,396,14,circle_monthly_kpi_sql.csv
+circle_targets,22,12,circle_targets_sql.csv
+offer_catalogue,20,14,offer_catalogue_sql.csv

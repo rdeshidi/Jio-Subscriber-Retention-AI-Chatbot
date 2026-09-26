@@ -1,0 +1,52 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 11 LOGISTIC REGRESSION BASELINE
+====================================================================================================
+
+Model: Logistic Regression
+Class weighting: balanced
+Decision threshold: 0.50
+
+PREPROCESSING
+----------------------------------------------------------------------------------------------------
+Numeric: median imputation + StandardScaler
+Categorical: most-frequent imputation + one-hot encoding
+All preprocessing is fitted on training data only.
+
+TRAIN / VALIDATION METRICS
+----------------------------------------------------------------------------------------------------
+   dataset  accuracy  precision  recall  f1_score  roc_auc  pr_auc
+     Train    0.8561     0.0949  0.8559    0.1709   0.9286  0.2105
+Validation    0.8548     0.0930  0.8400    0.1674   0.9204  0.2256
+
+VALIDATION CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+True Negatives  : 10,879
+False Positives : 1,844
+False Negatives : 36
+True Positives  : 189
+
+VALIDATION CLASSIFICATION REPORT
+----------------------------------------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9967    0.8551    0.9205     12723
+           1     0.0930    0.8400    0.1674       225
+
+    accuracy                         0.8548     12948
+   macro avg     0.5448    0.8475    0.5439     12948
+weighted avg     0.9810    0.8548    0.9074     12948
+
+
+BUSINESS RANKING METRICS
+----------------------------------------------------------------------------------------------------
+Validation churners: 225
+Top 10% customers scored: 1,295
+Churners captured in top 10%: 170
+Recall@Top10%: 0.7556
+Lift@Top10%: 7.55x
+
+IMPORTANT
+----------------------------------------------------------------------------------------------------
+The final test set was NOT used in this step.
+Model comparison and threshold decisions must be based on validation data first.

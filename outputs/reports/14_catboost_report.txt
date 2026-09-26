@@ -1,0 +1,66 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 14 CATBOOST MODEL
+====================================================================================================
+
+Model: CatBoostClassifier
+Categorical features handled natively.
+Class imbalance: auto_class_weights='Balanced'
+Best iteration: 229
+
+TRAIN / VALIDATION METRICS
+----------------------------------------------------------------------------------------------------
+   dataset  accuracy  precision  recall  f1_score  roc_auc  pr_auc
+     Train    0.8941     0.1354  0.9495    0.2371   0.9708  0.3780
+Validation    0.8889     0.1134  0.7911    0.1984   0.9181  0.2357
+
+VALIDATION CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+True Negatives  : 11,332
+False Positives : 1,391
+False Negatives : 47
+True Positives  : 178
+
+CLASSIFICATION REPORT
+----------------------------------------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9959    0.8907    0.9403     12723
+           1     0.1134    0.7911    0.1984       225
+
+    accuracy                         0.8889     12948
+   macro avg     0.5547    0.8409    0.5694     12948
+weighted avg     0.9805    0.8889    0.9274     12948
+
+
+BUSINESS RANKING METRICS
+----------------------------------------------------------------------------------------------------
+Validation churners: 225
+Top 10% customers scored: 1,295
+Churners captured in top 10%: 166
+Recall@Top10%: 0.7378
+Lift@Top10%: 7.38x
+
+TOP 15 FEATURE IMPORTANCES
+----------------------------------------------------------------------------------------------------
+                   feature  importance
+  days_since_last_recharge    9.047128
+             tenure_months    7.350099
+outgoing_to_competitor_pct    6.909178
+               avg_sinr_db    6.332074
+     site_congestion_score    5.987327
+       arpu_last_month_inr    5.159075
+     avg_recharge_gap_days    4.938645
+            app_logins_30d    4.537934
+           arpu_6m_avg_inr    3.819026
+           arpu_3m_avg_inr    3.593684
+        drop_call_rate_pct    3.176168
+        plan_validity_days    2.798090
+                      zone    2.695996
+     unresolved_complaints    2.607379
+           autopay_enabled    2.507394
+
+IMPORTANT
+----------------------------------------------------------------------------------------------------
+The final test set was NOT used.
+CatBoost used validation data only for early stopping and model evaluation.

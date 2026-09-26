@@ -1,0 +1,10 @@
+analysis,segment,subscribers,churners_30d,churn_rate_30d_pct
+SINR quality,<5 dB,2224,57,2.56
+SINR quality,5-14.9 dB,39057,762,1.95
+SINR quality,15+ dB,23457,303,1.29
+Congestion score,<30,31070,366,1.18
+Congestion score,30-69.9,31112,657,2.11
+Congestion score,70+,2556,99,3.87
+Drop-call rate,<0.5%,30159,417,1.38
+Drop-call rate,0.5-0.99%,21787,384,1.76
+Drop-call rate,1.0%+,12792,321,2.51

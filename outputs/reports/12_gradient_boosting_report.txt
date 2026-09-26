@@ -1,0 +1,75 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 12 GRADIENT BOOSTED TREES
+====================================================================================================
+
+Model: GradientBoostingClassifier
+Balanced sample weights: Yes
+Decision threshold: 0.50
+
+MODEL PARAMETERS
+----------------------------------------------------------------------------------------------------
+n_estimators = 200
+learning_rate = 0.05
+max_depth = 3
+min_samples_split = 20
+min_samples_leaf = 10
+subsample = 0.80
+
+TRAIN / VALIDATION METRICS
+----------------------------------------------------------------------------------------------------
+   dataset  accuracy  precision  recall  f1_score  roc_auc  pr_auc
+     Train    0.8790     0.1177  0.9212    0.2088   0.9594  0.2892
+Validation    0.8749     0.1035  0.8089    0.1835   0.9174  0.2249
+
+VALIDATION CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+True Negatives  : 11,146
+False Positives : 1,577
+False Negatives : 43
+True Positives  : 182
+
+VALIDATION CLASSIFICATION REPORT
+----------------------------------------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9962    0.8761    0.9323     12723
+           1     0.1035    0.8089    0.1835       225
+
+    accuracy                         0.8749     12948
+   macro avg     0.5498    0.8425    0.5579     12948
+weighted avg     0.9806    0.8749    0.9192     12948
+
+
+BUSINESS RANKING METRICS
+----------------------------------------------------------------------------------------------------
+Validation churners: 225
+Top 10% customers scored: 1,295
+Churners captured in top 10%: 167
+Recall@Top10%: 0.7422
+Lift@Top10%: 7.42x
+
+TOP 15 FEATURE IMPORTANCES
+----------------------------------------------------------------------------------------------------
+                            feature  importance
+  numeric__days_since_last_recharge    0.345834
+     numeric__avg_recharge_gap_days    0.112377
+       numeric__arpu_last_month_inr    0.079421
+     numeric__unresolved_complaints    0.071474
+     numeric__site_congestion_score    0.052453
+             numeric__tenure_months    0.052283
+numeric__outgoing_to_competitor_pct    0.049576
+        numeric__drop_call_rate_pct    0.040784
+           numeric__arpu_6m_avg_inr    0.035345
+            numeric__app_logins_30d    0.023076
+           numeric__arpu_3m_avg_inr    0.021779
+       numeric__avg_resolution_days    0.020005
+               numeric__avg_sinr_db    0.017790
+             numeric__complaints_6m    0.015184
+         numeric__recharge_count_6m    0.009086
+
+IMPORTANT
+----------------------------------------------------------------------------------------------------
+The test set was NOT used.
+This model is evaluated only on training and validation data.
+Final model selection will occur after Logistic Regression, Gradient Boosting, XGBoost and CatBoost are compared.

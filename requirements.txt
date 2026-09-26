@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+openpyxl
+scikit-learn
+xgboost
+catboost
+SQLAlchemy
+PyMySQL
+python-dotenv
+streamlit

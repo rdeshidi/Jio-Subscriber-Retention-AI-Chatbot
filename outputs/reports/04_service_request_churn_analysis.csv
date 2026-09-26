@@ -1,0 +1,10 @@
+analysis,segment,subscribers,churners_30d,churn_rate_30d_pct
+Service request count,0 requests,52765,851,1.61
+Service request count,1 request,10079,210,2.08
+Service request count,2+ requests,1894,61,3.22
+SLA breach,1+ SLA breach,6507,157,2.41
+SLA breach,No SLA breach,58231,965,1.66
+Open service request,1+ open request,1108,25,2.26
+Open service request,No open request,63630,1097,1.72
+Reopened service request,1+ reopened request,1621,33,2.04
+Reopened service request,No reopened request,63117,1089,1.73

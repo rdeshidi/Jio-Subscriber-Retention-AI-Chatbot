@@ -1,0 +1,129 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 04 - BUSINESS / CHURN ANALYSIS REPORT
+====================================================================================================
+
+Subscriber sample: 64,738
+30-day churners: 1,122
+30-day churn rate: 1.73%
+Latest circle KPI month: 2026-08-31
+
+====================================================================================================
+1. PROBLEMATIC REGIONS / CIRCLES
+====================================================================================================
+ sample_churn_rank                        circle  subscribers  churners_30d  churn_rate_30d_pct  latest_kpi_churn_pct  port_out_requests
+                 1            Uttar Pradesh East         5699           158                2.77                  2.50             860037
+                 2 Madhya Pradesh & Chhattisgarh         4384           109                2.49                  2.24             590414
+                 3             Bihar & Jharkhand         4788           117                2.44                  2.35             677182
+                 4            Uttar Pradesh West         3672            88                2.40                  2.43             465039
+                 5                         Assam         1179            28                2.37                  1.88             119413
+
+====================================================================================================
+2. CHURN TIMELINE / TENURE
+====================================================================================================
+ tenure_band  subscribers  churners_30d  churn_rate_30d_pct
+  0-3 months         1100            64                5.82
+  4-6 months         2498            80                3.20
+ 7-12 months         7406           175                2.36
+13-24 months        17352           336                1.94
+25-36 months        14166           198                1.40
+37-60 months        15082           202                1.34
+  61+ months         7134            67                0.94
+
+====================================================================================================
+3. COMPLAINT PATTERNS
+====================================================================================================
+                   analysis       segment  subscribers  churners_30d  churn_rate_30d_pct
+Complaints in last 6 months  0 complaints        34062           382                1.12
+Complaints in last 6 months   1 complaint        21602           439                2.03
+Complaints in last 6 months 2+ complaints         9074           301                3.32
+      Unresolved complaints  0 unresolved        54430           717                1.32
+      Unresolved complaints  1 unresolved         9465           338                3.57
+      Unresolved complaints 2+ unresolved          843            67                7.95
+
+====================================================================================================
+4. SERVICE REQUEST / SLA PATTERNS
+====================================================================================================
+                analysis             segment  subscribers  churners_30d  churn_rate_30d_pct
+   Service request count          0 requests        52765           851                1.61
+   Service request count           1 request        10079           210                2.08
+   Service request count         2+ requests         1894            61                3.22
+              SLA breach       1+ SLA breach         6507           157                2.41
+              SLA breach       No SLA breach        58231           965                1.66
+    Open service request     1+ open request         1108            25                2.26
+    Open service request     No open request        63630          1097                1.72
+Reopened service request 1+ reopened request         1621            33                2.04
+Reopened service request No reopened request        63117          1089                1.73
+
+====================================================================================================
+5. NETWORK QUALITY PATTERNS
+====================================================================================================
+        analysis   segment  subscribers  churners_30d  churn_rate_30d_pct
+    SINR quality     <5 dB         2224            57                2.56
+    SINR quality 5-14.9 dB        39057           762                1.95
+    SINR quality    15+ dB        23457           303                1.29
+Congestion score       <30        31070           366                1.18
+Congestion score   30-69.9        31112           657                2.11
+Congestion score       70+         2556            99                3.87
+  Drop-call rate     <0.5%        30159           417                1.38
+  Drop-call rate 0.5-0.99%        21787           384                1.76
+  Drop-call rate     1.0%+        12792           321                2.51
+
+====================================================================================================
+6. IMPORTANT CUSTOMER PATTERNS
+====================================================================================================
+                analysis      segment  subscribers  churners_30d  churn_rate_30d_pct
+               ARPU band        <₹150        20162           649                3.22
+               ARPU band ₹150-₹249.99        26656           382                1.43
+               ARPU band        ₹250+        17920            91                0.51
+Days since last recharge     0-7 days         9012            32                0.36
+Days since last recharge    8-30 days        28681           166                0.58
+Days since last recharge   31-60 days        14560           164                1.13
+Days since last recharge     61+ days        12485           760                6.09
+    Average recharge gap     <30 days        18506            98                0.53
+    Average recharge gap   30-59 days        26123           191                0.73
+    Average recharge gap   60-89 days        10406           163                1.57
+    Average recharge gap     90+ days         9703           670                6.91
+        Payment failures   0 failures        44302           498                1.12
+        Payment failures    1 failure        16156           384                2.38
+        Payment failures  2+ failures         4280           240                5.61
+               Plan type     Postpaid         7621            17                0.22
+               Plan type      Prepaid        57117          1105                1.93
+               5G active        False        38473           822                2.14
+               5G active         True        26265           300                1.14
+         Autopay enabled        False        49140           998                2.03
+         Autopay enabled         True        15598           124                0.79
+             Family plan        False        54879           987                1.80
+             Family plan         True         9859           135                1.37
+      Number of services            1        38116           743                1.95
+      Number of services            2        22124           338                1.53
+      Number of services            3         4228            40                0.95
+      Number of services            4          270             1                0.37
+
+====================================================================================================
+7. TOP NUMERIC CORRELATIONS WITH 30-DAY CHURN
+====================================================================================================
+                   feature  correlation_with_churn_30d  absolute_correlation  non_missing_rows
+  days_since_last_recharge                      0.2244                0.2244             64738
+     avg_recharge_gap_days                      0.2163                0.2163             64738
+         recharge_count_6m                     -0.1369                0.1369             64738
+       payment_failures_6m                      0.0941                0.0941             64738
+     unresolved_complaints                      0.0806                0.0806             64738
+            app_logins_30d                     -0.0764                0.0764             64738
+       arpu_last_month_inr                     -0.0727                0.0727             64738
+           arpu_3m_avg_inr                     -0.0705                0.0705             64738
+             complaints_6m                      0.0651                0.0651             64738
+     site_congestion_score                      0.0570                0.0570             64738
+outgoing_to_competitor_pct                      0.0449                0.0449             64738
+             tenure_months                     -0.0412                0.0412             64738
+        drop_call_rate_pct                      0.0390                0.0390             64738
+       avg_resolution_days                      0.0384                0.0384             64738
+        data_gb_last_month                     -0.0349                0.0349             64738
+
+Important: correlation shows association, not proof of causation.
+
+====================================================================================================
+8. MODELLING CAUTION
+====================================================================================================
+mnp_enquiry_flag, churn_reason and churn_date were NOT included in the churn correlation analysis because they represent target-leakage risk.
+churn_reason is used only for descriptive analysis of customers already known to churn.

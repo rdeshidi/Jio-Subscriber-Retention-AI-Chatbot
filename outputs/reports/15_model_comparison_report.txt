@@ -1,0 +1,38 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 15 MODEL COMPARISON
+====================================================================================================
+
+MODELS COMPARED
+----------------------------------------------------------------------------------------------------
+1. Logistic Regression
+2. Gradient Boosting
+3. XGBoost
+4. CatBoost
+
+VALIDATION RESULTS
+----------------------------------------------------------------------------------------------------
+              model  validation_precision  validation_recall  validation_f1  validation_roc_auc  validation_pr_auc  recall_at_top10  lift_at_top10
+Logistic Regression                0.0930             0.8400         0.1674              0.9204             0.2256           0.7556         7.5544
+  Gradient Boosting                0.1035             0.8089         0.1835              0.9174             0.2249           0.7422         7.4211
+            XGBoost                0.1392             0.7022         0.2324              0.9158             0.2117           0.7244         7.2433
+           CatBoost                0.1134             0.7911         0.1984              0.9181             0.2357           0.7378         7.3766
+
+OVERFITTING REVIEW
+----------------------------------------------------------------------------------------------------
+              model  roc_auc_train_gap  pr_auc_train_gap  recall_train_gap
+Logistic Regression             0.0082           -0.0151            0.0159
+  Gradient Boosting             0.0420            0.0643            0.1123
+            XGBoost             0.0726            0.3340            0.2948
+           CatBoost             0.0527            0.1423            0.1584
+
+INTERPRETATION
+----------------------------------------------------------------------------------------------------
+Logistic Regression provides strong recall, ROC-AUC and top-decile capture.
+Gradient Boosting improves precision and F1 relative to Logistic Regression, but shows a larger train-validation gap.
+XGBoost gives the highest precision and F1 at the default 0.50 threshold, but also shows the strongest evidence of overfitting among the initial models.
+CatBoost provides the strongest validation PR-AUC among the four initial models and handles categorical variables natively.
+
+No final champion is selected in this step.
+The next stage should tune promising models and optimise the classification threshold using validation data only.
+The final test set remains untouched.

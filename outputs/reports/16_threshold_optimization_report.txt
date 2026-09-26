@@ -1,0 +1,39 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 16 THRESHOLD OPTIMIZATION
+====================================================================================================
+
+PURPOSE
+----------------------------------------------------------------------------------------------------
+The default classification threshold of 0.50 may not provide the best precision-recall trade-off for an imbalanced churn dataset.
+
+Thresholds from 0.05 to 0.95 were evaluated using VALIDATION data only.
+
+No test data was used.
+
+BEST F1 THRESHOLDS
+----------------------------------------------------------------------------------------------------
+              model  threshold  accuracy  precision  recall  f1_score  fp  fn  tp
+Logistic Regression       0.92    0.9680     0.2595  0.4533    0.3301 291 123 102
+  Gradient Boosting       0.87    0.9687     0.2568  0.4222    0.3193 275 130  95
+            XGBoost       0.77    0.9626     0.2262  0.4756    0.3066 366 118 107
+           CatBoost       0.83    0.9664     0.2476  0.4578    0.3214 313 122 103
+
+HIGH-RECALL THRESHOLDS
+----------------------------------------------------------------------------------------------------
+              model  threshold  accuracy  precision  recall  f1_score   fp  fn  tp
+Logistic Regression       0.56    0.8742     0.1034  0.8133    0.1835 1587  42 183
+  Gradient Boosting       0.52    0.8833     0.1094  0.8000    0.1924 1466  45 180
+            XGBoost       0.33    0.8769     0.1050  0.8089    0.1859 1551  43 182
+           CatBoost       0.49    0.8858     0.1125  0.8089    0.1975 1436  43 182
+
+INTERPRETATION
+----------------------------------------------------------------------------------------------------
+Changing the classification threshold changes precision, recall, F1 and the confusion matrix.
+ROC-AUC and PR-AUC do not change because they evaluate ranking performance across thresholds.
+The maximum-F1 threshold provides one statistical operating point.
+The high-recall threshold represents a retention-oriented scenario in which the business wants to identify at least 80% of churners while reducing false positives as much as possible.
+
+Probability values from class-balanced models should currently be interpreted primarily as risk scores rather than perfectly calibrated real-world churn probabilities.
+
+The final test set remains untouched.

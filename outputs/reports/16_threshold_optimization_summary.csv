@@ -1,0 +1,9 @@
+model,strategy,threshold,accuracy,precision,recall,f1_score,tn,fp,fn,tp
+Logistic Regression,Maximum F1,0.92,0.968,0.2595,0.4533,0.3301,12432,291,123,102
+Gradient Boosting,Maximum F1,0.87,0.9687,0.2568,0.4222,0.3193,12448,275,130,95
+XGBoost,Maximum F1,0.77,0.9626,0.2262,0.4756,0.3066,12357,366,118,107
+CatBoost,Maximum F1,0.83,0.9664,0.2476,0.4578,0.3214,12410,313,122,103
+Logistic Regression,Recall >= 80%,0.56,0.8742,0.1034,0.8133,0.1835,11136,1587,42,183
+Gradient Boosting,Recall >= 80%,0.52,0.8833,0.1094,0.8,0.1924,11257,1466,45,180
+XGBoost,Recall >= 80%,0.33,0.8769,0.105,0.8089,0.1859,11172,1551,43,182
+CatBoost,Recall >= 80%,0.49,0.8858,0.1125,0.8089,0.1975,11287,1436,43,182

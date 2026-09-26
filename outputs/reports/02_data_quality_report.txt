@@ -1,0 +1,121 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 02 - DATA QUALITY & VALIDATION REPORT
+====================================================================================================
+
+Dataset snapshot date: 2026-08-31
+
+VALIDATION SUMMARY
+----------------------------------------------------------------------------------------------------
+PASS      : 71
+REVIEW    : 4
+INFO      : 2
+
+Total checks performed: 77
+Total identified issues: 1
+
+====================================================================================================
+CHECK RESULTS
+====================================================================================================
+             table                                    check_name status  affected_rows                                                                               details
+            README                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+            README                      Completely empty columns   PASS              0                                                          No completely empty columns.
+       subscribers                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+       subscribers                      Completely empty columns   PASS              0                                                          No completely empty columns.
+  service_requests                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+  service_requests                      Completely empty columns   PASS              0                                                          No completely empty columns.
+     network_sites                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+     network_sites                      Completely empty columns   PASS              0                                                          No completely empty columns.
+circle_monthly_kpi                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+circle_monthly_kpi                      Completely empty columns   PASS              0                                                          No completely empty columns.
+    circle_targets                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+    circle_targets                      Completely empty columns   PASS              0                                                          No completely empty columns.
+   offer_catalogue                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+   offer_catalogue                      Completely empty columns   PASS              0                                                          No completely empty columns.
+   data_dictionary                          Exact duplicate rows   PASS              0                                                              No exact duplicate rows.
+   data_dictionary                      Completely empty columns   PASS              0                                                          No completely empty columns.
+       subscribers                         Missing subscriber_id   PASS              0                                                       All subscriber IDs are present.
+       subscribers                       Duplicate subscriber_id   PASS              0                                                            Subscriber IDs are unique.
+       subscribers        30-day churn must also be 90-day churn   PASS              0                              Every 30-day churner is also marked as a 90-day churner.
+       subscribers            90-day churners missing churn_date   PASS              0                                                All 90-day churners have a churn date.
+       subscribers                  Non-churners with churn_date   PASS              0                                            Non-churners correctly have no churn date.
+       subscribers           Churn dates before/on snapshot date   PASS              0                                        All churn dates occur after the snapshot date.
+       subscribers  Churn dates beyond 90-day prediction horizon   PASS              0                                       All churn dates fall within the 90-day horizon.
+       subscribers 30-day churners with churn_date after 30 days REVIEW            739 Some customers marked as 30-day churners have churn dates outside the 30-day horizon.
+       subscribers          90-day churners missing churn_reason   PASS              0                                              All 90-day churners have a churn reason.
+       subscribers                Non-churners with churn_reason   PASS              0                                          Non-churners correctly have no churn reason.
+       subscribers                             Invalid join_date   PASS              0                                                             All join dates are valid.
+       subscribers                Join dates after snapshot date   PASS              0                                         All join dates occur on/before snapshot date.
+       subscribers            Tenure inconsistent with join_date   PASS              0                                                 Tenure is consistent with join dates.
+       subscribers              Negative values in tenure_months   PASS              0                                                  No negative values in tenure_months.
+       subscribers             Negative values in plan_price_inr   PASS              0                                                 No negative values in plan_price_inr.
+       subscribers         Negative values in plan_validity_days   PASS              0                                             No negative values in plan_validity_days.
+       subscribers        Negative values in arpu_last_month_inr   PASS              0                                            No negative values in arpu_last_month_inr.
+       subscribers            Negative values in arpu_3m_avg_inr   PASS              0                                                No negative values in arpu_3m_avg_inr.
+       subscribers            Negative values in arpu_6m_avg_inr   PASS              0                                                No negative values in arpu_6m_avg_inr.
+       subscribers          Negative values in recharge_count_6m   PASS              0                                              No negative values in recharge_count_6m.
+       subscribers      Negative values in avg_recharge_gap_days   PASS              0                                          No negative values in avg_recharge_gap_days.
+       subscribers   Negative values in days_since_last_recharge   PASS              0                                       No negative values in days_since_last_recharge.
+       subscribers        Negative values in payment_failures_6m   PASS              0                                            No negative values in payment_failures_6m.
+       subscribers         Negative values in data_gb_last_month   PASS              0                                             No negative values in data_gb_last_month.
+       subscribers             Negative values in data_gb_3m_avg   PASS              0                                                 No negative values in data_gb_3m_avg.
+       subscribers   Negative values in voice_minutes_last_month   PASS              0                                       No negative values in voice_minutes_last_month.
+       subscribers       Negative values in sms_count_last_month   PASS              0                                           No negative values in sms_count_last_month.
+       subscribers              Negative values in complaints_6m   PASS              0                                                  No negative values in complaints_6m.
+       subscribers      Negative values in unresolved_complaints   PASS              0                                          No negative values in unresolved_complaints.
+       subscribers        Negative values in avg_resolution_days   PASS              0                                            No negative values in avg_resolution_days.
+       subscribers               Negative values in num_services   PASS              0                                                   No negative values in num_services.
+       subscribers             Negative values in app_logins_30d   PASS              0                                                 No negative values in app_logins_30d.
+       subscribers              drop_call_rate_pct outside 0-100   PASS              0                                           drop_call_rate_pct values are within 0-100.
+       subscribers           site_congestion_score outside 0-100   PASS              0                                        site_congestion_score values are within 0-100.
+       subscribers      outgoing_to_competitor_pct outside 0-100   PASS              0                                   outgoing_to_competitor_pct values are within 0-100.
+       subscribers                       Implausible avg_sinr_db   PASS              0                                      SINR values fall within a broad plausible range.
+       subscribers Unresolved complaints exceed total complaints   PASS              0                            Unresolved complaint count never exceeds total complaints.
+       subscribers           5G active but device not 5G-capable   PASS              0                                           Every active 5G subscriber has a 5G device.
+       subscribers         Offer redeemed without offer exposure   PASS              0                                    All offer redemptions have corresponding exposure.
+       subscribers          Unexpected values in autopay_enabled   PASS              0                                  autopay_enabled contains valid boolean-style values.
+       subscribers             Unexpected values in is_5g_device   PASS              0                                     is_5g_device contains valid boolean-style values.
+       subscribers             Unexpected values in is_5g_active   PASS              0                                     is_5g_active contains valid boolean-style values.
+       subscribers         Unexpected values in family_plan_flag   PASS              0                                 family_plan_flag contains valid boolean-style values.
+       subscribers        Unexpected values in roaming_user_flag   PASS              0                                roaming_user_flag contains valid boolean-style values.
+       subscribers        Unexpected values in offer_exposed_90d   PASS              0                                offer_exposed_90d contains valid boolean-style values.
+       subscribers       Unexpected values in offer_redeemed_90d   PASS              0                               offer_redeemed_90d contains valid boolean-style values.
+       subscribers         Unexpected values in mnp_enquiry_flag   PASS              0                                 mnp_enquiry_flag contains valid boolean-style values.
+       subscribers           Unexpected values in churn_flag_30d   PASS              0                                   churn_flag_30d contains valid boolean-style values.
+       subscribers           Unexpected values in churn_flag_90d   PASS              0                                   churn_flag_90d contains valid boolean-style values.
+  service_requests        Subscriber FK not found in subscribers   PASS              0                                  Every service request references a valid subscriber.
+     network_sites         Missing primary-key candidate site_id   PASS              0                                                         No missing values in site_id.
+     network_sites       Duplicate primary-key candidate site_id   PASS              0                                                            site_id values are unique.
+  service_requests         Subscriber circles missing from table   PASS              0                                               All subscriber circles are represented.
+     network_sites         Subscriber circles missing from table   PASS              0                                               All subscriber circles are represented.
+circle_monthly_kpi         Subscriber circles missing from table   PASS              0                                               All subscriber circles are represented.
+    circle_targets         Subscriber circles missing from table   PASS              0                                               All subscriber circles are represented.
+       subscribers       Target leakage review: mnp_enquiry_flag REVIEW          64738 Retain in raw/business-analysis data, but review/exclude before predictive modelling.
+       subscribers           Target leakage review: churn_reason REVIEW           3241 Retain in raw/business-analysis data, but review/exclude before predictive modelling.
+       subscribers             Target leakage review: churn_date REVIEW           3241 Retain in raw/business-analysis data, but review/exclude before predictive modelling.
+       subscribers                  churn_flag_30d class balance   INFO           1122   Positive class: 1,122 (1.73%). Class imbalance must be considered during modelling.
+       subscribers                  churn_flag_90d class balance   INFO           3241   Positive class: 3,241 (5.01%). Class imbalance must be considered during modelling.
+
+====================================================================================================
+ISSUES REQUIRING REVIEW
+====================================================================================================
+      table                                    check_name severity  affected_rows                                                                               details
+subscribers 30-day churners with churn_date after 30 days CRITICAL            739 Some customers marked as 30-day churners have churn dates outside the 30-day horizon.
+
+====================================================================================================
+MISSINGNESS - TOP COLUMNS
+====================================================================================================
+           table          column  rows  missing_count  missing_pct
+     subscribers    churn_reason 64738          61497        94.99
+     subscribers      churn_date 64738          61497        94.99
+     subscribers    home_product 64738          57938        89.50
+ data_dictionary            note   112            100        89.29
+service_requests resolution_days 14206           1127         7.93
+service_requests   resolved_date 14206           1127         7.93
+service_requests      csat_score 14206           1127         7.93
+
+====================================================================================================
+MODELLING CAUTION
+====================================================================================================
+mnp_enquiry_flag, churn_reason and churn_date must be reviewed as potential target-leakage variables before predictive modelling.
+Step 02 performs validation only. No raw values have been modified.

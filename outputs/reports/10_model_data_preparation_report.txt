@@ -1,0 +1,39 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 10 MODELLING DATA PREPARATION
+====================================================================================================
+
+Original rows: 64,738
+Original columns: 43
+Target: churn_flag_30d
+Features retained: 36
+Numeric features: 23
+Categorical features: 13
+
+EXCLUDED FROM MODEL
+----------------------------------------------------------------------------------------------------
+subscriber_id: Unique customer identifier; no predictive meaning.
+mnp_enquiry_flag: Strong target-leakage risk and occurs too late for the intended early-retention use case.
+churn_reason: Only known after churn / outcome.
+churn_date: Direct future outcome information.
+churn_flag_90d: Future churn outcome and therefore leakage for a 30-day churn prediction model.
+join_date: Tenure_months already represents customer age at snapshot and is safer for the baseline model.
+
+TARGET DISTRIBUTION
+----------------------------------------------------------------------------------------------------
+                count  percentage
+churn_flag_30d
+0               63616       98.27
+1                1122        1.73
+
+TRAIN / VALIDATION / TEST
+----------------------------------------------------------------------------------------------------
+     split  rows  churners_30d  churn_rate_pct
+     Train 38842           673            1.73
+Validation 12948           225            1.74
+      Test 12948           224            1.73
+
+IMPORTANT MODELLING NOTE
+----------------------------------------------------------------------------------------------------
+No imputation, one-hot encoding, scaling, class weighting or resampling has been performed in Step 10.
+Those transformations will be placed inside the modelling pipeline so they are fitted only on training data and do not leak validation/test information.

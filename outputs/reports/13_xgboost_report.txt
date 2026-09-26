@@ -1,0 +1,57 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+DAY 2 - STEP 13 XGBOOST MODEL
+====================================================================================================
+
+scale_pos_weight = 56.71
+
+TRAIN / VALIDATION METRICS
+----------------------------------------------------------------------------------------------------
+   dataset  accuracy  precision  recall  f1_score  roc_auc  pr_auc
+     Train    0.9286     0.1948  0.9970    0.3260   0.9884  0.5457
+Validation    0.9194     0.1392  0.7022    0.2324   0.9158  0.2117
+
+VALIDATION CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+True Negatives  : 11,746
+False Positives : 977
+False Negatives : 67
+True Positives  : 158
+
+CLASSIFICATION REPORT
+----------------------------------------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9943    0.9232    0.9575     12723
+           1     0.1392    0.7022    0.2324       225
+
+    accuracy                         0.9194     12948
+   macro avg     0.5668    0.8127    0.5949     12948
+weighted avg     0.9795    0.9194    0.9449     12948
+
+
+BUSINESS RANKING METRICS
+----------------------------------------------------------------------------------------------------
+Recall@Top10%: 0.7244
+Lift@Top10%: 7.24x
+
+TOP 15 FEATURE IMPORTANCES
+----------------------------------------------------------------------------------------------------
+                               feature  importance
+     numeric__days_since_last_recharge    0.053858
+        numeric__unresolved_complaints    0.042269
+           numeric__plan_validity_days    0.039808
+        numeric__avg_recharge_gap_days    0.023475
+          numeric__arpu_last_month_inr    0.023404
+               numeric__app_logins_30d    0.021184
+                numeric__complaints_6m    0.020345
+                numeric__tenure_months    0.017593
+    categorical__autopay_enabled_False    0.017350
+   numeric__outgoing_to_competitor_pct    0.016698
+categorical__circle_Uttar Pradesh West    0.016399
+              numeric__arpu_6m_avg_inr    0.016320
+        numeric__site_congestion_score    0.016230
+           categorical__circle_code_OR    0.014991
+          numeric__avg_resolution_days    0.014415
+
+The final test set was NOT used.

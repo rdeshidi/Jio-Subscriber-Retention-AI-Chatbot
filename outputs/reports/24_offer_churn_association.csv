@@ -1,0 +1,5 @@
+analysis,segment,customers,churners,churn_rate,churn_pct
+Offer Exposure,Not Exposed,50747,864,0.017025636983467003,1.7025636983467003
+Offer Exposure,Exposed,13991,258,0.01844042598813523,1.844042598813523
+Offer Redemption,Exposed - Not Redeemed,8797,160,0.018188018642719107,1.8188018642719108
+Offer Redemption,Exposed - Redeemed,5194,98,0.018867924528301886,1.8867924528301887

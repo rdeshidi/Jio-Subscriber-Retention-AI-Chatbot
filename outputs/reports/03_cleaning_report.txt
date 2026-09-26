@@ -1,0 +1,68 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 03 - DATA CLEANING / ANALYSIS-READY PREPARATION REPORT
+====================================================================================================
+
+Cleaning strategy: conservative.
+The supplied synthetic sandbox was already structurally clean, so no unnecessary imputation, row deletion, target rewriting, or outlier removal was performed.
+
+====================================================================================================
+PROCESSED TABLES
+====================================================================================================
+subscribers                64,738 rows x  43 columns
+service_requests           14,206 rows x  16 columns
+network_sites               3,847 rows x  13 columns
+circle_monthly_kpi            396 rows x  14 columns
+circle_targets                 22 rows x  12 columns
+offer_catalogue                20 rows x  14 columns
+
+====================================================================================================
+SUBSCRIBER INTEGRITY
+====================================================================================================
+Raw subscriber rows       : 64,738
+Processed subscriber rows : 64,738
+Same row count            : True
+Same column count         : True
+Same subscriber ID set    : True
+
+Known 30-day label/date mismatch: 739 rows
+Action: documented only. The supplied target was preserved.
+
+====================================================================================================
+IMPORTANT MODELLING NOTE
+====================================================================================================
+mnp_enquiry_flag, churn_reason and churn_date remain available for Day-1 business analysis, but must be reviewed/excluded before predictive modelling because of target leakage.
+
+====================================================================================================
+CLEANING LOG
+====================================================================================================
+             table                                      action  affected_rows                                                                                                                                            details
+       subscribers          Strip whitespace from column names              0                                                                               Leading/trailing whitespace removed from column names where present.
+  service_requests          Strip whitespace from column names              0                                                                               Leading/trailing whitespace removed from column names where present.
+     network_sites          Strip whitespace from column names              0                                                                               Leading/trailing whitespace removed from column names where present.
+circle_monthly_kpi          Strip whitespace from column names              0                                                                               Leading/trailing whitespace removed from column names where present.
+    circle_targets          Strip whitespace from column names              0                                                                               Leading/trailing whitespace removed from column names where present.
+   offer_catalogue          Strip whitespace from column names              0                                                                               Leading/trailing whitespace removed from column names where present.
+       subscribers                          Trim string values              0                                                                    Leading/trailing whitespace removed from text values. Missing values preserved.
+  service_requests                          Trim string values              0                                                                    Leading/trailing whitespace removed from text values. Missing values preserved.
+     network_sites                          Trim string values              0                                                                    Leading/trailing whitespace removed from text values. Missing values preserved.
+circle_monthly_kpi                          Trim string values              0                                                                    Leading/trailing whitespace removed from text values. Missing values preserved.
+    circle_targets                          Trim string values              0                                                                    Leading/trailing whitespace removed from text values. Missing values preserved.
+   offer_catalogue                          Trim string values              0                                                                    Leading/trailing whitespace removed from text values. Missing values preserved.
+       subscribers     Convert empty strings to missing values              0                                                                        Blank strings converted to NA. Existing legitimate missing values retained.
+  service_requests     Convert empty strings to missing values              0                                                                        Blank strings converted to NA. Existing legitimate missing values retained.
+     network_sites     Convert empty strings to missing values              0                                                                        Blank strings converted to NA. Existing legitimate missing values retained.
+circle_monthly_kpi     Convert empty strings to missing values              0                                                                        Blank strings converted to NA. Existing legitimate missing values retained.
+    circle_targets     Convert empty strings to missing values              0                                                                        Blank strings converted to NA. Existing legitimate missing values retained.
+   offer_catalogue     Convert empty strings to missing values              0                                                                        Blank strings converted to NA. Existing legitimate missing values retained.
+       subscribers         Document 30-day churn/date mismatch            739                                                          Rows were documented only. churn_flag_30d was NOT altered and churn_date was NOT altered.
+       subscribers                     Preserve churn_flag_30d              0                                    The supplied churn_flag_30d remains the authoritative modelling target. It was not regenerated from churn_date.
+       subscribers Preserve expected missingness: churn_reason          61497                                                                                  Missing values in churn_reason retained. No imputation performed.
+       subscribers   Preserve expected missingness: churn_date          61497                                                                                    Missing values in churn_date retained. No imputation performed.
+       subscribers  Preserve leakage fields for Day-1 analysis              0 Fields retained in processed data: ['mnp_enquiry_flag', 'churn_reason', 'churn_date']. They must be excluded/reviewed during predictive modelling.
+       subscribers                   Final duplicate-row check              0                                                                                                                        No duplicate rows detected.
+  service_requests                   Final duplicate-row check              0                                                                                                                        No duplicate rows detected.
+     network_sites                   Final duplicate-row check              0                                                                                                                        No duplicate rows detected.
+circle_monthly_kpi                   Final duplicate-row check              0                                                                                                                        No duplicate rows detected.
+    circle_targets                   Final duplicate-row check              0                                                                                                                        No duplicate rows detected.
+   offer_catalogue                   Final duplicate-row check              0                                                                                                                        No duplicate rows detected.

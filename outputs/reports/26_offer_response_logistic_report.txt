@@ -1,0 +1,61 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 26 - OFFER RESPONSE LOGISTIC REGRESSION BASELINE
+====================================================================================================
+
+OBJECTIVE
+----------------------------------------------------------------------------------------------------
+Predict offer redemption among customers who were historically exposed to an offer.
+
+This is a response-propensity model, not a causal uplift model.
+
+TRAIN / VALIDATION PERFORMANCE
+----------------------------------------------------------------------------------------------------
+   dataset  accuracy  precision  recall     f1  roc_auc  pr_auc
+     Train    0.6288        0.5  0.0019 0.0038   0.5521  0.4169
+Validation    0.6297        0.8  0.0038 0.0077   0.4870  0.3725
+
+VALIDATION CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+True negatives  : 1,758
+False positives : 1
+False negatives : 1,035
+True positives  : 4
+
+TARGETING PERFORMANCE
+----------------------------------------------------------------------------------------------------
+Validation responders: 1,039
+Customers in top 10%: 280
+Responders captured in top 10%: 108
+Recall@Top10%: 0.1039
+Lift@Top10%: 1.04x
+
+TOP COEFFICIENTS BY ABSOLUTE MAGNITUDE
+----------------------------------------------------------------------------------------------------
+                                       feature  coefficient  absolute_coefficient
+            categorical__device_brand_Motorola      -0.2324                0.2324
+               categorical__device_brand_Tecno       0.1608                0.1608
+categorical__device_brand_JioBharat / JioPhone      -0.1602                0.1602
+               categorical__device_brand_Apple       0.1515                0.1515
+                      numeric__arpu_6m_avg_inr       0.1500                0.1500
+            categorical__home_product_JioFiber      -0.1285                0.1285
+          categorical__circle_Himachal Pradesh      -0.1258                0.1258
+                   categorical__circle_code_HP      -0.1258                0.1258
+                  numeric__arpu_last_month_inr      -0.1209                0.1209
+                categorical__device_brand_OPPO      -0.0953                0.0953
+               categorical__circle_West Bengal      -0.0892                0.0892
+                   categorical__circle_code_WB      -0.0892                0.0892
+               categorical__is_5g_active_False      -0.0877                0.0877
+                   numeric__plan_validity_days      -0.0808                0.0808
+               categorical__plan_type_Postpaid      -0.0775                0.0775
+             categorical__autopay_enabled_True      -0.0738                0.0738
+           categorical__family_plan_flag_False      -0.0737                0.0737
+                  categorical__circle_code_UPE      -0.0725                0.0725
+        categorical__circle_Uttar Pradesh East      -0.0725                0.0725
+                   categorical__circle_code_KA       0.0725                0.0725
+
+IMPORTANT
+----------------------------------------------------------------------------------------------------
+Positive coefficients are associated with higher predicted redemption propensity; negative coefficients are associated with lower predicted propensity, holding other model inputs constant.
+These coefficients describe model associations and should not be interpreted as causal effects of customer attributes.
+The offer-response test set remains untouched.

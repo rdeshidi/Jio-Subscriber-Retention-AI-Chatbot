@@ -1,0 +1,38 @@
+====================================================================================================
+JIO SUBSCRIBER RETENTION PROJECT
+STEP 24 - OFFER RESPONSE & UPLIFT FEASIBILITY AUDIT
+====================================================================================================
+
+OFFER EXPOSURE / RESPONSE
+----------------------------------------------------------------------------------------------------
+Subscribers: 64,738
+Exposed customers: 13,991
+Exposure rate: 21.61%
+Redeemed among exposed: 5,194
+Redemption rate among exposed: 37.12%
+Redeemed without exposure: 0
+
+DESCRIPTIVE CHURN ASSOCIATION
+----------------------------------------------------------------------------------------------------
+        analysis                segment  customers  churners  churn_pct
+  Offer Exposure            Not Exposed      50747       864     1.7026
+  Offer Exposure                Exposed      13991       258     1.8440
+Offer Redemption Exposed - Not Redeemed       8797       160     1.8188
+Offer Redemption     Exposed - Redeemed       5194        98     1.8868
+
+CAUSAL-UPLIFT AUDIT
+----------------------------------------------------------------------------------------------------
+Randomization/control fields: []
+Treatment timing fields: []
+Subscriber-offer linkage fields: []
+Offer catalogue found: True
+
+Offer-response model feasible: True
+Causal uplift model ready: False
+
+INTERPRETATION
+----------------------------------------------------------------------------------------------------
+A redemption-response propensity model may be feasible if there are sufficient redeemers and non-redeemers among exposed customers.
+However, a proper causal uplift model requires defensible treatment/control assignment and treatment timing.
+Simple churn differences between exposed and unexposed customers must not be reported as the causal effect of discounts.
+The next modelling step should be chosen from the actual feasibility results rather than forcing uplift modelling when the required experimental structure is absent.

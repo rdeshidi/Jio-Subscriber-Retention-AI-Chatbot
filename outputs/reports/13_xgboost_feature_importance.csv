@@ -1,0 +1,101 @@
+feature,importance
+numeric__days_since_last_recharge,0.05385769
+numeric__unresolved_complaints,0.042269062
+numeric__plan_validity_days,0.039807815
+numeric__avg_recharge_gap_days,0.023475481
+numeric__arpu_last_month_inr,0.02340365
+numeric__app_logins_30d,0.021184156
+numeric__complaints_6m,0.020345468
+numeric__tenure_months,0.017593354
+categorical__autopay_enabled_False,0.01735028
+numeric__outgoing_to_competitor_pct,0.016698394
+categorical__circle_Uttar Pradesh West,0.01639855
+numeric__arpu_6m_avg_inr,0.01632028
+numeric__site_congestion_score,0.016230147
+categorical__circle_code_OR,0.014991005
+numeric__avg_resolution_days,0.01441535
+categorical__is_5g_active_False,0.014160556
+categorical__circle_code_WB,0.0140195
+numeric__arpu_3m_avg_inr,0.01381223
+numeric__drop_call_rate_pct,0.013712071
+categorical__home_product_JioFiber,0.013137363
+numeric__recharge_count_6m,0.0127522675
+numeric__num_services,0.012733212
+categorical__circle_code_KA,0.012280835
+categorical__circle_code_UPW,0.011433601
+categorical__circle_code_UPE,0.010876462
+categorical__circle_Uttar Pradesh East,0.010583381
+categorical__device_brand_Tecno,0.010310731
+numeric__avg_sinr_db,0.010115405
+categorical__circle_Kerala,0.009627293
+categorical__family_plan_flag_True,0.009504675
+categorical__is_5g_device_True,0.0095028225
+categorical__circle_code_AP,0.009140557
+categorical__circle_Maharashtra & Goa,0.0091126915
+categorical__zone_North,0.008992747
+categorical__circle_code_PB,0.008989707
+categorical__offer_exposed_90d_True,0.008824417
+categorical__home_product_JioAirFiber,0.008823127
+categorical__circle_Odisha,0.008675597
+categorical__plan_type_Prepaid,0.008638014
+categorical__circle_code_TN,0.008598328
+numeric__sms_count_last_month,0.008545399
+categorical__family_plan_flag_False,0.008543663
+numeric__payment_failures_6m,0.008361022
+categorical__device_brand_Xiaomi,0.008349016
+categorical__circle_code_DL,0.008303038
+categorical__circle_Mumbai,0.00828846
+numeric__data_gb_last_month,0.008254436
+categorical__circle_Rajasthan,0.008217717
+categorical__is_5g_active_True,0.0081558125
+categorical__circle_West Bengal,0.0081147095
+categorical__circle_Karnataka,0.007979091
+categorical__zone_East,0.007776023
+numeric__data_gb_3m_avg,0.0077668773
+categorical__zone_South,0.007759829
+categorical__autopay_enabled_True,0.0075865076
+categorical__circle_code_HR,0.0075790905
+categorical__plan_type_Postpaid,0.007571572
+categorical__circle_Gujarat,0.0075481166
+categorical__device_brand_JioBharat / JioPhone,0.007519677
+numeric__voice_minutes_last_month,0.0074459966
+categorical__circle_Punjab,0.007413645
+categorical__circle_code_RJ,0.0074038124
+categorical__offer_redeemed_90d_False,0.0073248744
+categorical__zone_West,0.007296979
+categorical__circle_Tamil Nadu,0.007187024
+categorical__offer_exposed_90d_False,0.007171188
+categorical__circle_Haryana,0.0071166707
+categorical__is_5g_device_False,0.007088304
+numeric__plan_price_inr,0.007060138
+categorical__device_brand_Samsung,0.0070197685
+categorical__circle_Kolkata,0.0067283083
+categorical__device_brand_OnePlus,0.0067162155
+categorical__circle_North East,0.006686877
+categorical__device_brand_realme,0.0066060824
+categorical__circle_code_JK,0.0065006996
+categorical__device_brand_POCO,0.006475195
+categorical__circle_Delhi NCR,0.0064318776
+categorical__circle_code_HP,0.0060974197
+categorical__circle_code_MU,0.00608643
+categorical__circle_code_KL,0.005961814
+categorical__circle_Andhra Pradesh & Telangana,0.0059317267
+categorical__device_brand_OPPO,0.0058190967
+categorical__circle_Assam,0.0058114324
+categorical__circle_Jammu & Kashmir,0.0056940652
+categorical__circle_code_AS,0.0053479853
+categorical__roaming_user_flag_False,0.0053188424
+categorical__circle_code_NE,0.0052232975
+categorical__circle_code_MH,0.0051488997
+categorical__circle_Bihar & Jharkhand,0.0050432924
+categorical__device_brand_Motorola,0.0048474115
+categorical__device_brand_Apple,0.004770393
+categorical__circle_Himachal Pradesh,0.004387526
+categorical__device_brand_vivo,0.0043258364
+categorical__circle_Madhya Pradesh & Chhattisgarh,0.0042998465
+categorical__circle_code_GJ,0.0036898926
+categorical__roaming_user_flag_True,0.003037431
+categorical__circle_code_MP,0.0025654193
+categorical__circle_code_BH,0.0
+categorical__circle_code_KO,0.0
+categorical__offer_redeemed_90d_True,0.0
