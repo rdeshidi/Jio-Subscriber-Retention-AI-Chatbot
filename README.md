@@ -128,7 +128,9 @@ bootcamp_proj_05_Jio_Retention/
 │   ├── 33_chatbot_audit_logging.py
 │   ├── 34_answer_synthesis.py
 │   ├── 35_jio_chatbot_app.py
-│   └── 36_final_project_validation.py
+│   ├── 36_final_project_validation.py
+│   ├── 37_shap_explainability.py
+│   └── 38_shap_chatbot_integration.py
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt
@@ -250,6 +252,22 @@ Because the available historical data does not provide the required randomized t
 
 ---
 
+## SHAP Explainability
+
+The existing final CatBoost 30-day churn model is explained using SHAP (SHapley Additive exPlanations). The explainability layer provides global feature importance and privacy-safe individual model reason codes without retraining the model.
+
+Outputs include:
+
+```text
+outputs/reports/37_shap_global_feature_importance.csv
+outputs/reports/37_shap_individual_subscriber_explanations.csv
+outputs/reports/37_high_risk_subscribers_shap_summary.csv
+outputs/reports/37_shap_explainability_report.txt
+outputs/charts/25_shap_global_feature_importance.png
+```
+
+The Streamlit chatbot includes a SHAP route for model-factor questions. Subscriber identifiers are not exposed in the user-facing SHAP explanations. SHAP values explain model behaviour for an observation; they do not establish causality.
+
 ## AI Chatbot
 
 The chatbot uses:
@@ -313,12 +331,12 @@ Run final project validation:
 python src/36_final_project_validation.py
 ```
 
-The validation checks project structure, source compilation, model artifacts, reports, chatbot artifacts, SQL files, documentation, configuration hygiene, and Streamlit code.
+The validation checks project structure, source compilation, model artifacts, reports, SHAP artifacts, chatbot artifacts, SQL files, documentation, configuration hygiene, and Streamlit code.
 
 Final validation result:
 
 ```text
-Passed:   89
+Passed:   95
 Failed:   0
 Warnings: 0
 
@@ -328,6 +346,13 @@ Warnings: 0
 ---
 
 ## Key Deliverables
+
+Final business report:
+
+```text
+Jio_Subscriber_Retention_Final_Business_Report.docx
+Jio_Subscriber_Retention_Final_Business_Report.pdf
+```
 
 Important output folders:
 
@@ -340,7 +365,7 @@ data/clv/
 architecture/
 ```
 
-The project also contains final chatbot audit logs and answer-synthesis demonstration artifacts.
+The project also contains final chatbot audit logs, answer-synthesis demonstration artifacts, and SHAP explainability outputs.
 
 ---
 

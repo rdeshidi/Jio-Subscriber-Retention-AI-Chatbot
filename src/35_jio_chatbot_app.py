@@ -49,6 +49,12 @@ STEP34_PATH = (
     / "34_answer_synthesis.py"
 )
 
+STEP38_PATH = (
+    PROJECT_ROOT
+    / "src"
+    / "38_shap_chatbot_integration.py"
+)
+
 STEP33_PATH = (
     PROJECT_ROOT
     / "src"
@@ -187,6 +193,11 @@ try:
         str(STEP34_PATH),
         "step34_streamlit_module",
     )
+
+    step38 = load_module(
+    str(STEP38_PATH),
+    "step38_streamlit_module",
+)
 
     ollama_exe = find_ollama()
 
@@ -428,200 +439,283 @@ if question:
                 )
 
             else:
+                # --------------------------------------------
+                # 1A. SHAP explainability route
+                # --------------------------------------------
+
+                shap_answer = (
+                    step38.answer_shap_question(
+                        question
+                    )
+                )
+
+                shap_question = any(
+                    phrase in question.lower()
+                    for phrase in [
+                        "shap",
+                        "model explanation",
+                        "main churn factors",
+                        "important churn factors",
+                        "what drives churn",
+                        "what is driving churn",
+                        "what are the main factors driving churn",
+                        "factors driving churn",
+                    ]
+                )
+
+                if shap_question:
+
+                    answer = shap_answer
+
+                    st.markdown(
+                        answer
+                    )
+
+                    runtime = round(
+                        __import__("time").perf_counter()
+                        - start_time,
+                        4,
+                    )
+
+                    write_audit_record(
+                        {
+                            "timestamp_utc": (
+                                __import__(
+                                    "datetime"
+                                )
+                                .datetime
+                                .now(
+                                    __import__(
+                                        "datetime"
+                                    )
+                                    .timezone.utc
+                                )
+                                .isoformat()
+                            ),
+                            "question_hash": __import__(
+                                "hashlib"
+                            ).sha256(
+                                question.encode(
+                                    "utf-8"
+                                )
+                            ).hexdigest()[:16],
+                            "question": question,
+                            "privacy_status": "PASSED",
+                            "sql_generated": "",
+                            "validation_status": "NOT_APPLICABLE",
+                            "execution_status": "NOT_RUN",
+                            "runtime_seconds": runtime,
+                            "row_count": 0,
+                            "result_status": "SUCCESS",
+                            "error": "",
+                            "model": "SHAP + "
+                                    + OLLAMA_MODEL,
+                            "ollama_version": "local Ollama",
+                        }
+                    )
+
+                    st.session_state.messages.append(
+                        {
+                            "role": "assistant",
+                            "content": answer,
+                        }
+                    )
+
+                else:
 
                 # --------------------------------------------
                 # 2. Load privacy-safe schema
                 # --------------------------------------------
 
-                schema = (
-                    step32.load_safe_schema()
-                )
-
-                schema_text = (
-                    step32.build_schema_prompt(
-                        schema
+                    schema = (
+                        step32.load_safe_schema()
                     )
-                )
 
-                # --------------------------------------------
-                # 3. Generate SQL
-                # --------------------------------------------
-
-                with st.spinner(
-                    "Generating SQL with local Qwen model..."
-                ):
-
-                    raw_response = (
-                        step32.ask_local_llm(
-                            ollama_exe,
-                            question,
-                            schema_text,
+                    schema_text = (
+                        step32.build_schema_prompt(
+                            schema
                         )
                     )
 
-                sql = (
-                    step32.extract_sql(
-                        raw_response
-                    )
-                )
+                    # --------------------------------------------
+                    # 3. Generate SQL
+                    # --------------------------------------------
 
-                # --------------------------------------------
-                # 4. Execute through Step 31
-                # --------------------------------------------
-
-                with st.spinner(
-                    "Validating and querying Jio database..."
-                ):
-
-                    db_result = (
-                        step31.process_question_and_sql(
-                            question=question,
-                            sql=sql,
-                            max_rows=MAX_ROWS,
-                        )
-                    )
-
-                # --------------------------------------------
-                # 5. Synthesize answer
-                # --------------------------------------------
-
-                with st.spinner(
-                    "Preparing verified business answer..."
-                ):
-
-                    answer = (
-                        step34.build_verified_answer(
-                            question,
-                            db_result,
-                        )
-                    )
-
-                    answer = (
-                        step34.add_sql_trace(
-                            answer,
-                            sql,
-                        )
-                    )
-
-                runtime = round(
-                    __import__("time").perf_counter()
-                    - start_time,
-                    4,
-                )
-
-                # --------------------------------------------
-                # 6. Display answer
-                # --------------------------------------------
-
-                st.markdown(
-                    answer
-                )
-
-                # --------------------------------------------
-                # 7. Optional data preview
-                # --------------------------------------------
-
-                if isinstance(
-                    db_result,
-                    pd.DataFrame,
-                ):
-
-                    with st.expander(
-                        "View returned data"
+                    with st.spinner(
+                        "Generating SQL with local Qwen model..."
                     ):
 
-                        st.dataframe(
-                            db_result,
-                           width="stretch",
-                            hide_index=True,
+                        raw_response = (
+                            step32.ask_local_llm(
+                                ollama_exe,
+                                question,
+                                schema_text,
+                            )
                         )
 
-                elif isinstance(
-                    db_result,
-                    list,
-                ):
+                    sql = (
+                        step32.extract_sql(
+                            raw_response
+                        )
+                    )
 
-                    with st.expander(
-                        "View returned data"
+                    # --------------------------------------------
+                    # 4. Execute through Step 31
+                    # --------------------------------------------
+
+                    with st.spinner(
+                        "Validating and querying Jio database..."
                     ):
 
-                        st.write(
+                        db_result = (
+                            step31.process_question_and_sql(
+                                question=question,
+                                sql=sql,
+                                max_rows=MAX_ROWS,
+                            )
+                        )
+
+                    # --------------------------------------------
+                    # 5. Synthesize answer
+                    # --------------------------------------------
+
+                    with st.spinner(
+                        "Preparing verified business answer..."
+                    ):
+
+                        answer = (
+                            step34.build_verified_answer(
+                                question,
+                                db_result,
+                            )
+                        )
+
+                        answer = (
+                            step34.add_sql_trace(
+                                answer,
+                                sql,
+                            )
+                        )
+
+                    runtime = round(
+                        __import__("time").perf_counter()
+                        - start_time,
+                        4,
+                    )
+
+                    # --------------------------------------------
+                    # 6. Display answer
+                    # --------------------------------------------
+
+                    st.markdown(
+                        answer
+                    )
+
+                    # --------------------------------------------
+                    # 7. Optional data preview
+                    # --------------------------------------------
+
+                    if isinstance(
+                        db_result,
+                        pd.DataFrame,
+                    ):
+
+                        with st.expander(
+                            "View returned data"
+                        ):
+
+                            st.dataframe(
+                                db_result,
+                            width="stretch",
+                                hide_index=True,
+                            )
+
+                    elif isinstance(
+                        db_result,
+                        list,
+                    ):
+
+                        with st.expander(
+                            "View returned data"
+                        ):
+
+                            st.write(
+                                db_result
+                            )
+
+                    # --------------------------------------------
+                    # 8. Extract trace SQL for UI storage
+                    # --------------------------------------------
+
+                    answer_for_history = answer
+
+                    st.session_state.messages.append(
+                        {
+                            "role": "assistant",
+                            "content": answer_for_history,
+                            "sql": sql,
+                        }
+                    )
+
+                    # --------------------------------------------
+                    # 9. Audit log
+                    # --------------------------------------------
+
+                    row_count = 0
+
+                    if hasattr(
+                        db_result,
+                        "shape",
+                    ):
+
+                        row_count = int(
+                            db_result.shape[0]
+                        )
+
+                    elif isinstance(
+                        db_result,
+                        list,
+                    ):
+
+                        row_count = len(
                             db_result
                         )
 
-                # --------------------------------------------
-                # 8. Extract trace SQL for UI storage
-                # --------------------------------------------
-
-                answer_for_history = answer
-
-                st.session_state.messages.append(
-                    {
-                        "role": "assistant",
-                        "content": answer_for_history,
-                        "sql": sql,
-                    }
-                )
-
-                # --------------------------------------------
-                # 9. Audit log
-                # --------------------------------------------
-
-                row_count = 0
-
-                if hasattr(
-                    db_result,
-                    "shape",
-                ):
-
-                    row_count = int(
-                        db_result.shape[0]
-                    )
-
-                elif isinstance(
-                    db_result,
-                    list,
-                ):
-
-                    row_count = len(
-                        db_result
-                    )
-
-                write_audit_record(
-                    {
-                        "timestamp_utc": (
-                            __import__(
-                                "datetime"
-                            )
-                            .datetime
-                            .now(
+                    write_audit_record(
+                        {
+                            "timestamp_utc": (
                                 __import__(
                                     "datetime"
                                 )
-                                .timezone.utc
-                            )
-                            .isoformat()
-                        ),
-                        "question_hash": __import__(
-                            "hashlib"
-                        ).sha256(
-                            question.encode(
-                                "utf-8"
-                            )
-                        ).hexdigest()[:16],
-                        "question": question,
-                        "privacy_status": "PASSED",
-                        "sql_generated": sql,
-                        "validation_status": "PASSED",
-                        "execution_status": "PASSED",
-                        "runtime_seconds": runtime,
-                        "row_count": row_count,
-                        "result_status": "SUCCESS",
-                        "error": "",
-                        "model": OLLAMA_MODEL,
-                        "ollama_version": "local Ollama",
-                    }
-                )
+                                .datetime
+                                .now(
+                                    __import__(
+                                        "datetime"
+                                    )
+                                    .timezone.utc
+                                )
+                                .isoformat()
+                            ),
+                            "question_hash": __import__(
+                                "hashlib"
+                            ).sha256(
+                                question.encode(
+                                    "utf-8"
+                                )
+                            ).hexdigest()[:16],
+                            "question": question,
+                            "privacy_status": "PASSED",
+                            "sql_generated": sql,
+                            "validation_status": "PASSED",
+                            "execution_status": "PASSED",
+                            "runtime_seconds": runtime,
+                            "row_count": row_count,
+                            "result_status": "SUCCESS",
+                            "error": "",
+                            "model": OLLAMA_MODEL,
+                            "ollama_version": "local Ollama",
+                        }
+                    )
 
         except PermissionError as exc:
 

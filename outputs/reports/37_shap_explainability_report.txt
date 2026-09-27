@@ -1,0 +1,176 @@
+JIO SUBSCRIBER RETENTION
+STEP 37 - SHAP EXPLAINABILITY REPORT
+======================================================================
+
+Purpose
+Explain the existing final CatBoost 30-day churn model without retraining it.
+
+Global SHAP analysis
+Test-set rows available: 12,948
+SHAP explanation sample: 3,000
+Global feature importance is based on mean absolute SHAP value.
+
+Top 15 SHAP features
+----------------------------------------------------------------------
+ 1. device_brand: 0.898481
+ 2. voice_minutes_last_month: 0.517206
+ 3. family_plan_flag: 0.425250
+ 4. arpu_last_month_inr: 0.360212
+ 5. circle_code: 0.325238
+ 6. avg_recharge_gap_days: 0.261814
+ 7. plan_type: 0.241845
+ 8. home_product: 0.236369
+ 9. recharge_count_6m: 0.205096
+10. outgoing_to_competitor_pct: 0.198411
+11. data_gb_3m_avg: 0.178911
+12. avg_sinr_db: 0.171570
+13. zone: 0.156548
+14. days_since_last_recharge: 0.147957
+15. is_5g_device: 0.146433
+
+Individual subscriber explanations
+----------------------------------------------------------------------
+High-risk subscribers explained: 20
+
+Explanation 001 | 30-day churn probability: 0.9771
+  1. voice_minutes_last_month = 170 | SHAP=1.793247 | increases churn risk
+  2. circle = Uttar Pradesh East | SHAP=0.870778 | increases churn risk
+  3. recharge_count_6m = 1 | SHAP=0.789453 | increases churn risk
+  4. data_gb_3m_avg = 19.85 | SHAP=0.690671 | increases churn risk
+  5. arpu_last_month_inr = 292.2 | SHAP=0.601208 | increases churn risk
+
+Explanation 002 | 30-day churn probability: 0.9756
+  1. voice_minutes_last_month = 184 | SHAP=1.493551 | increases churn risk
+  2. device_brand = vivo | SHAP=-1.031745 | decreases churn risk
+  3. plan_type = Prepaid | SHAP=0.702995 | increases churn risk
+  4. recharge_count_6m = 0 | SHAP=0.626311 | increases churn risk
+  5. data_gb_3m_avg = 4.04 | SHAP=0.625693 | increases churn risk
+
+Explanation 003 | 30-day churn probability: 0.9747
+  1. voice_minutes_last_month = 505 | SHAP=1.660600 | increases churn risk
+  2. device_brand = OPPO | SHAP=-0.802323 | decreases churn risk
+  3. circle = Uttar Pradesh East | SHAP=0.727370 | increases churn risk
+  4. data_gb_3m_avg = 55.58 | SHAP=0.647470 | increases churn risk
+  5. recharge_count_6m = 0 | SHAP=0.613015 | increases churn risk
+
+Explanation 004 | 30-day churn probability: 0.9737
+  1. voice_minutes_last_month = 65 | SHAP=1.554745 | increases churn risk
+  2. device_brand = Apple | SHAP=-0.771462 | decreases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.724156 | increases churn risk
+  4. data_gb_3m_avg = 20.88 | SHAP=0.678819 | increases churn risk
+  5. family_plan_flag = False | SHAP=0.560837 | increases churn risk
+
+Explanation 005 | 30-day churn probability: 0.9726
+  1. voice_minutes_last_month = 370 | SHAP=1.668274 | increases churn risk
+  2. device_brand = JioBharat / JioPhone | SHAP=-0.779177 | decreases churn risk
+  3. arpu_last_month_inr = 121.06 | SHAP=0.723881 | increases churn risk
+  4. recharge_count_6m = 0 | SHAP=0.700386 | increases churn risk
+  5. data_gb_3m_avg = 18.84 | SHAP=0.666357 | increases churn risk
+
+Explanation 006 | 30-day churn probability: 0.9719
+  1. voice_minutes_last_month = 169 | SHAP=1.577467 | increases churn risk
+  2. device_brand = Xiaomi | SHAP=-0.910969 | decreases churn risk
+  3. plan_type = Prepaid | SHAP=0.830409 | increases churn risk
+  4. recharge_count_6m = 0 | SHAP=0.770175 | increases churn risk
+  5. zone = North | SHAP=0.694285 | increases churn risk
+
+Explanation 007 | 30-day churn probability: 0.9713
+  1. voice_minutes_last_month = 306 | SHAP=1.021357 | increases churn risk
+  2. device_brand = vivo | SHAP=-0.772803 | decreases churn risk
+  3. arpu_last_month_inr = 82.22 | SHAP=0.709003 | increases churn risk
+  4. family_plan_flag = False | SHAP=0.592871 | increases churn risk
+  5. plan_type = Prepaid | SHAP=0.582418 | increases churn risk
+
+Explanation 008 | 30-day churn probability: 0.9699
+  1. voice_minutes_last_month = 161 | SHAP=1.760220 | increases churn risk
+  2. arpu_last_month_inr = 208.66 | SHAP=0.858306 | increases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.857367 | increases churn risk
+  4. data_gb_3m_avg = 48.87 | SHAP=0.806325 | increases churn risk
+  5. plan_type = Prepaid | SHAP=0.687756 | increases churn risk
+
+Explanation 009 | 30-day churn probability: 0.9688
+  1. voice_minutes_last_month = 163 | SHAP=1.648504 | increases churn risk
+  2. device_brand = vivo | SHAP=-0.849471 | decreases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.726433 | increases churn risk
+  4. plan_type = Prepaid | SHAP=0.635758 | increases churn risk
+  5. data_gb_3m_avg = 19.27 | SHAP=0.571447 | increases churn risk
+
+Explanation 010 | 30-day churn probability: 0.9659
+  1. voice_minutes_last_month = 205 | SHAP=1.828175 | increases churn risk
+  2. device_brand = Tecno | SHAP=-0.966010 | decreases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.771002 | increases churn risk
+  4. data_gb_3m_avg = 7.8 | SHAP=0.665914 | increases churn risk
+  5. plan_type = Prepaid | SHAP=0.605202 | increases churn risk
+
+Explanation 011 | 30-day churn probability: 0.9653
+  1. voice_minutes_last_month = 119 | SHAP=1.566055 | increases churn risk
+  2. arpu_last_month_inr = 120.32 | SHAP=0.771525 | increases churn risk
+  3. recharge_count_6m = 1 | SHAP=0.760373 | increases churn risk
+  4. device_brand = realme | SHAP=-0.651157 | decreases churn risk
+  5. data_gb_3m_avg = 49.41 | SHAP=0.644764 | increases churn risk
+
+Explanation 012 | 30-day churn probability: 0.9625
+  1. voice_minutes_last_month = 301 | SHAP=1.628224 | increases churn risk
+  2. arpu_last_month_inr = 154.11 | SHAP=0.818440 | increases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.769587 | increases churn risk
+  4. device_brand = POCO | SHAP=-0.767906 | decreases churn risk
+  5. data_gb_3m_avg = 12.17 | SHAP=0.698155 | increases churn risk
+
+Explanation 013 | 30-day churn probability: 0.9600
+  1. voice_minutes_last_month = 200 | SHAP=1.719803 | increases churn risk
+  2. device_brand = realme | SHAP=-0.885256 | decreases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.711504 | increases churn risk
+  4. data_gb_3m_avg = 7.67 | SHAP=0.686123 | increases churn risk
+  5. family_plan_flag = True | SHAP=0.592810 | increases churn risk
+
+Explanation 014 | 30-day churn probability: 0.9591
+  1. voice_minutes_last_month = 323 | SHAP=1.616258 | increases churn risk
+  2. device_brand = Apple | SHAP=-0.824860 | decreases churn risk
+  3. recharge_count_6m = 0 | SHAP=0.776445 | increases churn risk
+  4. arpu_last_month_inr = 97.55 | SHAP=0.756642 | increases churn risk
+  5. data_gb_3m_avg = 21.59 | SHAP=0.648809 | increases churn risk
+
+Explanation 015 | 30-day churn probability: 0.9585
+  1. voice_minutes_last_month = 261 | SHAP=1.845980 | increases churn risk
+  2. recharge_count_6m = 1 | SHAP=0.861280 | increases churn risk
+  3. device_brand = vivo | SHAP=-0.839135 | decreases churn risk
+  4. data_gb_3m_avg = 10.03 | SHAP=0.743657 | increases churn risk
+  5. circle = Uttar Pradesh East | SHAP=0.701820 | increases churn risk
+
+Explanation 016 | 30-day churn probability: 0.9582
+  1. voice_minutes_last_month = 231 | SHAP=2.047214 | increases churn risk
+  2. recharge_count_6m = 1 | SHAP=0.906990 | increases churn risk
+  3. arpu_last_month_inr = 209.16 | SHAP=0.873573 | increases churn risk
+  4. data_gb_3m_avg = 10.09 | SHAP=0.737702 | increases churn risk
+  5. family_plan_flag = False | SHAP=0.668707 | increases churn risk
+
+Explanation 017 | 30-day churn probability: 0.9562
+  1. voice_minutes_last_month = 33 | SHAP=1.939624 | increases churn risk
+  2. recharge_count_6m = 1 | SHAP=0.771222 | increases churn risk
+  3. arpu_last_month_inr = 227.38 | SHAP=0.756280 | increases churn risk
+  4. data_gb_3m_avg = 9.07 | SHAP=0.722163 | increases churn risk
+  5. family_plan_flag = False | SHAP=-0.609466 | decreases churn risk
+
+Explanation 018 | 30-day churn probability: 0.9561
+  1. voice_minutes_last_month = 151 | SHAP=1.362079 | increases churn risk
+  2. device_brand = vivo | SHAP=-0.925294 | decreases churn risk
+  3. arpu_last_month_inr = 77.4 | SHAP=0.753510 | increases churn risk
+  4. recharge_count_6m = 0 | SHAP=0.747305 | increases churn risk
+  5. plan_type = Prepaid | SHAP=0.605793 | increases churn risk
+
+Explanation 019 | 30-day churn probability: 0.9561
+  1. voice_minutes_last_month = 635 | SHAP=1.767523 | increases churn risk
+  2. recharge_count_6m = 0 | SHAP=0.926234 | increases churn risk
+  3. device_brand = JioBharat / JioPhone | SHAP=-0.863608 | decreases churn risk
+  4. arpu_last_month_inr = 251.42 | SHAP=0.732226 | increases churn risk
+  5. data_gb_3m_avg = 3.4 | SHAP=0.695859 | increases churn risk
+
+Explanation 020 | 30-day churn probability: 0.9546
+  1. voice_minutes_last_month = 181 | SHAP=1.746324 | increases churn risk
+  2. device_brand = POCO | SHAP=-0.880303 | decreases churn risk
+  3. arpu_last_month_inr = 157.16 | SHAP=0.862102 | increases churn risk
+  4. recharge_count_6m = 0 | SHAP=0.800008 | increases churn risk
+  5. data_gb_3m_avg = 147.51 | SHAP=0.712404 | increases churn risk
+
+Interpretation note
+A positive SHAP value indicates that the feature pushes the model prediction toward higher churn risk for that observation. A negative SHAP value pushes the prediction toward lower churn risk. SHAP explains the model prediction; it does not prove that changing a feature will causally change churn.

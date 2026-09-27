@@ -164,6 +164,8 @@ required_scripts = [
     "33_chatbot_audit_logging.py",
     "34_answer_synthesis.py",
     "35_jio_chatbot_app.py",
+    "37_shap_explainability.py",
+    "38_shap_chatbot_integration.py",
 ]
 
 for script in required_scripts:
@@ -286,6 +288,10 @@ model_reports = [
     "20_final_catboost_feature_importance.csv",
     "20_validation_vs_test_comparison.csv",
     "20_final_churn_model_summary.txt",
+    "37_shap_global_feature_importance.csv",
+    "37_shap_individual_subscriber_explanations.csv",
+    "37_high_risk_subscribers_shap_summary.csv",
+    "37_shap_explainability_report.txt",
 ]
 
 for filename in model_reports:
@@ -615,9 +621,16 @@ check(
     chart_count > 0,
 )
 
+shap_chart_path = (
+    PROJECT_ROOT
+    / "outputs"
+    / "charts"
+    / "25_shap_global_feature_importance.png"
+)
+
 check(
-    "At least one report artifact exists",
-    report_count > 0,
+    "SHAP global feature-importance chart exists",
+    shap_chart_path.is_file(),
 )
 
 

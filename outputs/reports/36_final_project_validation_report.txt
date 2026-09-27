@@ -4,7 +4,7 @@ FINAL PROJECT VALIDATION REPORT
 
 Project root: C:\Users\rkred\Downloads\bootcamp_proj_05_Jio_Retention
 
-Passed checks: 89
+Passed checks: 95
 Failed checks: 0
 Warnings: 0
 
@@ -55,6 +55,8 @@ PASSED
 - Source exists: 33_chatbot_audit_logging.py
 - Source exists: 34_answer_synthesis.py
 - Source exists: 35_jio_chatbot_app.py
+- Source exists: 37_shap_explainability.py
+- Source exists: 38_shap_chatbot_integration.py
 - All Python source files compile
 - Model artifact: models/logistic_regression_baseline.pkl
 - Model artifact: models/gradient_boosting_model.pkl
@@ -73,6 +75,10 @@ PASSED
 - Report exists: 20_final_catboost_feature_importance.csv
 - Report exists: 20_validation_vs_test_comparison.csv
 - Report exists: 20_final_churn_model_summary.txt
+- Report exists: 37_shap_global_feature_importance.csv
+- Report exists: 37_shap_individual_subscriber_explanations.csv
+- Report exists: 37_high_risk_subscribers_shap_summary.csv
+- Report exists: 37_shap_explainability_report.txt
 - Artifact exists: data/clv/clv_value_prepared.csv
 - Artifact exists: data/clv/clv_metadata.json
 - Artifact exists: data/clv/customer_risk_value_priority.csv
@@ -97,7 +103,7 @@ PASSED
 - No obvious hard-coded credential values found in Python source
 - Streamlit app does not use deprecated use_container_width parameter
 - At least one chart artifact exists
-- At least one report artifact exists
+- SHAP global feature-importance chart exists
 
 FAILED
 
